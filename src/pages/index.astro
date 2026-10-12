@@ -1,0 +1,141 @@
+﻿---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import logo from '../assets/logo.jpeg';
+import retrato from '../assets/retrato.png';
+import { site, nav, hero, services, pillars, essence, projects, about, contact } from '../data/content';
+
+const year = new Date().getFullYear();
+
+const icons: Record<string, string> = {
+  moon: 'M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z',
+  leaf: 'M12 21v-8m0 0c0-4 2-7 6-8-.5 4-2 7-6 8zm0 0c0-3-1.5-5-5-5.5.3 3 2 5 5 5.5z',
+  star: 'M12 2c.8 5.5 4.5 9.2 10 10-5.5.8-9.2 4.5-10 10-.8-5.5-4.5-9.2-10-10 5.5-.8 9.2-4.5 10-10z',
+  heart: 'M12 20.5S3.5 15 3.5 9A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8.5 2c0 6-8.5 11.5-8.5 11.5z',
+};
+---
+
+<Base>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="brand" aria-label="Lunaria, inicio">
+        <Image src={logo} alt="Lunaria estudio creativo" height={112} loading="eager" class="brand__logo" />
+      </a>
+      <nav class="nav" aria-label="Principal">
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+      <a href="#contacto" class="btn btn--small">Escribinos</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <span class="blob blob--hero-a" aria-hidden="true"></span>
+      <span class="blob blob--hero-b" aria-hidden="true"></span>
+      <div class="container hero__inner">
+        <p class="eyebrow"><span class="spark" aria-hidden="true"></span>{hero.eyebrow}</p>
+        <h1>{hero.title}</h1>
+        <p class="lead">{hero.text}</p>
+        <div class="hero__actions">
+          <a class="btn" href={hero.cta.href}>{hero.cta.label}</a>
+          <a class="btn btn--ghost" href={hero.ctaSecondary.href}>{hero.ctaSecondary.label}</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="section">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Servicios</p>
+          <h2>Lo que hacemos.</h2>
+        </header>
+        <div class="grid grid--4">
+          {services.map((s, i) => (
+            <article class="card">
+              <span class="card__num">0{i + 1}</span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="esencia" class="section section--navy">
+      <div class="container essence">
+        <div>
+          <p class="eyebrow eyebrow--light"><span class="spark" aria-hidden="true"></span>Esencia de marca</p>
+          <h2>{essence.title}</h2>
+          {essence.text.map((t) => <p class="lead lead--light">{t}</p>)}
+        </div>
+        <ul class="pillars">
+          {pillars.map((p) => (
+            <li class="pillar">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+                <path d={icons[p.icon]} />
+              </svg>
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <section id="proyectos" class="section">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Proyectos</p>
+          <h2>Historias que dejan huella.</h2>
+        </header>
+        <div class="grid grid--3">
+          {projects.map((p, i) => (
+            <article class={`project project--${i + 1}`}>
+              <span class="project__tag">{p.tag}</span>
+              <div class="project__body">
+                <h3>{p.title}</h3>
+                <p>{p.note}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros" class="section section--sand">
+      <div class="container about">
+        <div class="about__photo">
+          <Image src={retrato} alt="Retrato de la fundadora de Lunaria" width={640} class="about__img" />
+        </div>
+        <div>
+          <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Nosotros</p>
+          <h2>{about.title}</h2>
+          {about.text.map((t) => <p class="lead">{t}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section contact">
+      <span class="blob blob--contact" aria-hidden="true"></span>
+      <div class="container contact__inner">
+        <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Contacto</p>
+        <h2>{contact.title}</h2>
+        <p class="lead">{contact.text}</p>
+        <div class="contact__links">
+          <a class="btn" href={`mailto:${site.email}`}>{site.email}</a>
+          <a class="btn btn--ghost" href={site.whatsapp} target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn--ghost" href={site.instagram} target="_blank" rel="noopener">{site.instagramHandle}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <Image src={logo} alt="Lunaria" height={80} class="brand__logo brand__logo--footer" />
+      <p>Diseño que inspira historias.</p>
+      <p class="footer__copy">© {year} Lunaria. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</Base>
+
