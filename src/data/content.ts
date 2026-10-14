@@ -1,6 +1,10 @@
 // Todos los textos de la web viven acá. Para cambiar copy no hace falta tocar el diseño.
 // Los textos marcados con TODO son provisorios: revisarlos y reemplazarlos.
 
+import islaBosch1 from '../assets/proyectos/isla-bosch/render-1.jpg';
+import islaBosch2 from '../assets/proyectos/isla-bosch/render-2.jpg';
+import islaBosch3 from '../assets/proyectos/isla-bosch/render-3.jpg';
+
 export const site = {
   name: 'Lunaria',
   tagline: 'Diseño con intención',
@@ -91,11 +95,21 @@ export const projects = [
     gallery: ['Formas en movimiento', 'Exploración de color', 'Cuadro de cierre'],
   },
   {
-    slug: 'forma-01', title: 'Forma 01', category: 'Diseño 3D · Producto', description: 'Exploración visual 3D de un objeto cotidiano.',
-    art: 'forma', size: 'wide', type: 'Visualización 3D', focus: 'Volumen, material y luz', tools: 'Modelado · Materiales · Iluminación',
-    intro: 'Un estudio 3D ficticio para presentar un objeto cotidiano desde una mirada cálida y contemporánea.',
-    idea: 'La pieza propone una forma simple, superficies suaves y una iluminación envolvente. El foco está en explorar materiales y volumen para darle presencia al producto antes de tener una fotografía final.',
-    gallery: ['Estudio de producto', 'Detalle de material', 'Prueba de iluminación'],
+    slug: 'isla-bosch', title: 'Isla Bosch', category: 'Diseño 3D · Punto de venta', description: 'Isla exhibidora para el Sistema Inalámbrico 12V/18V de Bosch.',
+    art: 'forma', size: 'wide', type: 'Diseño 3D · Punto de venta', focus: 'Exhibición de producto y comunicación de marca', tools: 'Modelado · Materiales · Iluminación · Render',
+    intro: 'Diseño y visualización 3D de una isla exhibidora para presentar el Sistema Inalámbrico 12V/18V de Bosch en el punto de venta.',
+    idea: 'La estructura combina un módulo de exhibición con estantes, una marquesina iluminada con la marca y paneles gráficos que llevan el mensaje central de la campaña: una batería, muchas posibilidades. El modelo interactivo permite recorrer la pieza desde todos los ángulos.',
+    gallery: ['Vista lateral', 'Detalle superior'],
+    real: true,
+    cover: islaBosch1,
+    images: [islaBosch2, islaBosch3],
+    sketchfab: {
+      src: 'https://sketchfab.com/models/6a3e5ed2b87446e9ab169d8dbc58df67/embed',
+      url: 'https://sketchfab.com/3d-models/isla-bosch-sistema-inalambrico-12v18v-6a3e5ed2b87446e9ab169d8dbc58df67',
+      title: 'Isla Bosch Sistema Inalámbrico 12V/18V',
+      author: 'Nicolás Martín',
+      authorUrl: 'https://sketchfab.com/martin.nicolas',
+    },
   },
 ];
 

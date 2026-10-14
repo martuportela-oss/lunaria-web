@@ -1,8 +1,16 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { projects, site } from '../../data/content';
 
-type Project = (typeof projects)[number];
+type Sketchfab = { src: string; url: string; title: string; author: string; authorUrl: string };
+type Project = (typeof projects)[number] & {
+  real?: boolean;
+  cover?: ImageMetadata;
+  images?: ImageMetadata[];
+  sketchfab?: Sketchfab;
+};
 
 export function getStaticPaths() {
   return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
@@ -10,6 +18,7 @@ export function getStaticPaths() {
 
 const { project } = Astro.props as { project: Project };
 const artLabel = `${project.title}, imagen conceptual ficticia de muestra`;
+const isReal = Boolean(project.real);
 ---
 
 <Base title={`${project.title} · Proyectos | ${site.name}`} description={project.intro}>
@@ -21,43 +30,82 @@ const artLabel = `${project.title}, imagen conceptual ficticia de muestra`;
 
     <div class="project-detail__content">
       <section class="project-detail__intro">
-        <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Concepto ficticio · Contenido de muestra</p>
+        <p class="eyebrow"><span class="spark" aria-hidden="true"></span>{isReal ? 'Proyecto seleccionado' : 'Concepto ficticio · Contenido de muestra'}</p>
         <p class="project-detail__type">{project.category}</p>
         <h1>{project.title}</h1>
         <p class="project-detail__summary">{project.intro}</p>
         <div class="project-detail__idea">
           <h2>La idea</h2>
           <p>{project.idea}</p>
-          <p>Este ejercicio es una exploración visual provisoria. El proyecto, su marca y sus aplicaciones son ficticios y se reemplazarán por trabajos seleccionados por Lunaria.</p>
+          {!isReal && <p>Este ejercicio es una exploración visual provisoria. El proyecto, su marca y sus aplicaciones son ficticios y se reemplazarán por trabajos seleccionados por Lunaria.</p>}
         </div>
       </section>
 
-      <figure class={`project-detail__cover project--${project.art}`}>
-        <div class="project__art" role="img" aria-label={artLabel}>
-          {project.art === 'brava' && <div class="project-art-brava"><span>BRAVA</span><small>rico · simple · de acá</small><i>!</i></div>}
-          {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
-          {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
-          {project.art === 'forma' && <div class="project-art-forma"><span>FORMA<br />01</span><i></i><small>objeto en estudio</small></div>}
-        </div>
-        <figcaption>Dirección visual conceptual · Lunaria</figcaption>
-      </figure>
+      {project.cover ? (
+        <figure class="project-detail__cover project-detail__cover--photo">
+          <Image src={project.cover} alt={`${project.title}: vista general del render`} widths={[640, 1080, 1600]} sizes="(max-width: 1180px) 100vw, 1180px" loading="eager" class="project-detail__photo" />
+          <figcaption>Render 3D · Vista general</figcaption>
+        </figure>
+      ) : (
+        <figure class={`project-detail__cover project--${project.art}`}>
+          <div class="project__art" role="img" aria-label={artLabel}>
+            {project.art === 'brava' && <div class="project-art-brava"><span>BRAVA</span><small>rico · simple · de acá</small><i>!</i></div>}
+            {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
+            {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
+            {project.art === 'forma' && <div class="project-art-forma"><span>FORMA<br />01</span><i></i><small>objeto en estudio</small></div>}
+          </div>
+          <figcaption>Dirección visual conceptual · Lunaria</figcaption>
+        </figure>
+      )}
 
-      <section class="project-detail__gallery" aria-label="Imágenes conceptuales adicionales">
-        {project.gallery.map((label, index) => (
-          <figure class={`detail-gallery__item detail-gallery__item--${project.art} detail-gallery__item--${index + 1}`}>
-            <div class="detail-gallery__visual" role="img" aria-label={`${label}: visual conceptual ficticia`}>
-              <span>{project.title}</span><i aria-hidden="true"></i><b>{String(index + 1).padStart(2, '0')}</b>
-            </div>
-            <figcaption>{label}<small>Imagen de concepto · Muestra ficticia</small></figcaption>
-          </figure>
-        ))}
-      </section>
+      {project.sketchfab && (
+        <section class="project-detail__model" aria-labelledby="modelo-3d">
+          <header class="project-detail__model-head">
+            <h2 id="modelo-3d">Modelo 3D interactivo</h2>
+            <p>Arrastrá para girar, usá la rueda o pellizcá para acercar.</p>
+          </header>
+          <div class="project-detail__model-frame">
+            <iframe
+              title={project.sketchfab.title}
+              src={`${project.sketchfab.src}?ui_theme=dark&ui_infos=0&ui_watermark_link=0&dnt=1`}
+              loading="lazy"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p class="project-detail__model-credit">
+            <a href={project.sketchfab.url} target="_blank" rel="noopener">{project.sketchfab.title}</a> · por <a href={project.sketchfab.authorUrl} target="_blank" rel="noopener">{project.sketchfab.author}</a> en <a href="https://sketchfab.com" target="_blank" rel="noopener">Sketchfab</a>
+          </p>
+        </section>
+      )}
 
-      <section class="project-detail__facts" aria-label="Ficha del concepto">
+      {project.images ? (
+        <section class="project-detail__gallery project-detail__gallery--photos" aria-label="Más imágenes del proyecto">
+          {project.images.map((img, index) => (
+            <figure class="detail-gallery__item detail-gallery__item--photo">
+              <Image src={img} alt={`${project.title}: ${project.gallery[index] ?? 'render'}`} widths={[480, 800, 1200]} sizes="(max-width: 899px) 100vw, 580px" class="detail-gallery__photo" />
+              <figcaption>{project.gallery[index] ?? 'Render'}<small>Render 3D</small></figcaption>
+            </figure>
+          ))}
+        </section>
+      ) : (
+        <section class="project-detail__gallery" aria-label="Imágenes conceptuales adicionales">
+          {project.gallery.map((label, index) => (
+            <figure class={`detail-gallery__item detail-gallery__item--${project.art} detail-gallery__item--${index + 1}`}>
+              <div class="detail-gallery__visual" role="img" aria-label={`${label}: visual conceptual ficticia`}>
+                <span>{project.title}</span><i aria-hidden="true"></i><b>{String(index + 1).padStart(2, '0')}</b>
+              </div>
+              <figcaption>{label}<small>Imagen de concepto · Muestra ficticia</small></figcaption>
+            </figure>
+          ))}
+        </section>
+      )}
+
+      <section class="project-detail__facts" aria-label={isReal ? 'Ficha del proyecto' : 'Ficha del concepto'}>
         <div><span>Tipo de proyecto</span><p>{project.type}</p></div>
         <div><span>Enfoque</span><p>{project.focus}</p></div>
-        <div><span>Áreas exploradas</span><p>{project.tools}</p></div>
-        <div><span>Estado</span><p>Concepto ficticio · Reemplazar por un proyecto seleccionado</p></div>
+        <div><span>{isReal ? 'Áreas de trabajo' : 'Áreas exploradas'}</span><p>{project.tools}</p></div>
+        <div><span>{isReal ? 'Formato' : 'Estado'}</span><p>{isReal ? (project.sketchfab ? 'Renders 3D · Modelo interactivo' : 'Renders 3D') : 'Concepto ficticio · Reemplazar por un proyecto seleccionado'}</p></div>
       </section>
 
       <footer class="project-detail__footer">
