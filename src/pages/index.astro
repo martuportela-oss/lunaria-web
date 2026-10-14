@@ -1,4 +1,4 @@
-﻿---
+---
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import logo from '../assets/logo.jpeg';
@@ -63,39 +63,26 @@ const year = new Date().getFullYear();
           <h2>¿Qué te gustaría crear?</h2>
           <p class="lead">Elegí un área y descubrí cómo podemos darle forma a tu idea.</p>
         </header>
-        <div class="services__experience reveal">
-          <div class="services__list" role="group" aria-label="Elegí un servicio">
-            {services.map((s, i) => (
-              <button class="service-option" type="button" data-service-select={i} aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`service-detail-${i}`}>
-                <span class="service-option__number">0{i + 1}</span>
-                <span class="service-option__title">{s.title}</span>
-                <span class="service-option__arrow" aria-hidden="true">↗</span>
-              </button>
-            ))}
-          </div>
-          <div class="services__details" aria-live="polite">
-            {services.map((s, i) => (
-              <article id={`service-detail-${i}`} class={`service-detail service-detail--${s.visual}`} data-service-detail={i} aria-labelledby={`service-title-${i}`} hidden={i !== 0}>
-                <div class="service-detail__visual" aria-hidden="true">
-                  {s.visual === 'identity' && <svg viewBox="0 0 300 520" preserveAspectRatio="xMidYMid slice"><rect width="300" height="520" fill="#203d54"/><circle cx="150" cy="230" r="110" fill="none" stroke="#f8f1e6" stroke-opacity=".22"/><circle cx="150" cy="230" r="78" fill="none" stroke="#d6b981" stroke-opacity=".55"/><rect x="48" y="112" width="204" height="236" rx="3" fill="#f8f1e6"/><path d="M78 192c0-21 15-37 35-37 18 0 30 12 30 29 0 24-29 39-29 58 0 13 10 22 23 22 10 0 20-6 27-17" fill="none" stroke="#203d54" stroke-width="12" stroke-linecap="round"/><text x="82" y="290" fill="#203d54" font-size="23" font-weight="700" font-family="sans-serif">Lunaria</text><text x="83" y="310" fill="#6b7880" font-size="7" letter-spacing="3" font-family="sans-serif">IDENTIDAD VISUAL</text><rect x="82" y="324" width="25" height="8" fill="#203d54"/><rect x="112" y="324" width="25" height="8" fill="#d6b981"/><rect x="142" y="324" width="25" height="8" fill="#bf8e70"/><path d="M220 90l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="#d6b981"/></svg>}
-                  {s.visual === 'web' && <svg viewBox="0 0 300 520" preserveAspectRatio="xMidYMid slice"><rect width="300" height="520" fill="#718a9a"/><circle cx="250" cy="90" r="92" fill="#d6b981" fill-opacity=".35"/><rect x="28" y="130" width="235" height="205" rx="10" fill="#f8f1e6"/><path d="M28 160h235" stroke="#203d54" stroke-opacity=".2"/><circle cx="45" cy="145" r="3" fill="#bf8e70"/><circle cx="57" cy="145" r="3" fill="#d6b981"/><circle cx="69" cy="145" r="3" fill="#203d54"/><rect x="45" y="180" width="87" height="7" rx="3" fill="#203d54"/><rect x="45" y="196" width="62" height="4" rx="2" fill="#9aa7aa"/><rect x="45" y="209" width="72" height="4" rx="2" fill="#9aa7aa"/><rect x="45" y="228" width="48" height="16" rx="8" fill="#203d54"/><rect x="150" y="177" width="93" height="88" rx="5" fill="#d6b981"/><circle cx="195" cy="218" r="25" fill="#bf8e70"/><rect x="178" y="272" width="50" height="4" rx="2" fill="#203d54"/><rect x="194" y="290" width="60" height="120" rx="12" fill="#203d54"/><rect x="200" y="303" width="48" height="91" rx="5" fill="#f8f1e6"/><rect x="207" y="313" width="34" height="34" rx="4" fill="#d6b981"/><rect x="207" y="355" width="28" height="4" rx="2" fill="#718a9a"/><rect x="207" y="365" width="34" height="4" rx="2" fill="#718a9a"/><circle cx="224" cy="402" r="3" fill="#d6b981"/></svg>}
-                  {s.visual === 'social' && <svg viewBox="0 0 300 520" preserveAspectRatio="xMidYMid slice"><rect width="300" height="520" fill="#b98a6a"/><circle cx="64" cy="98" r="95" fill="#d6b981" fill-opacity=".5"/><g transform="rotate(-8 125 260)"><rect x="35" y="145" width="156" height="202" rx="7" fill="#f8f1e6"/><rect x="50" y="161" width="24" height="24" rx="12" fill="#203d54"/><rect x="82" y="166" width="69" height="4" rx="2" fill="#203d54"/><rect x="82" y="175" width="42" height="3" rx="2" fill="#b98a6a"/><rect x="50" y="199" width="126" height="91" fill="#203d54"/><circle cx="111" cy="245" r="30" fill="#d6b981"/><path d="M91 250c12-21 29-28 44-15" fill="none" stroke="#f8f1e6" stroke-width="4" stroke-linecap="round"/><text x="56" y="315" fill="#203d54" font-size="15" font-weight="700" font-family="sans-serif">UN DÍA</text><text x="56" y="330" fill="#203d54" font-size="15" font-weight="700" font-family="sans-serif">MÁS BRAVA</text></g><g transform="rotate(8 207 340)"><rect x="154" y="261" width="112" height="151" rx="7" fill="#203d54"/><rect x="164" y="273" width="92" height="83" fill="#d6b981"/><path d="M178 337l25-40 17 24 14-16 17 32z" fill="#bf8e70"/><rect x="166" y="370" width="62" height="4" rx="2" fill="#f8f1e6"/><rect x="166" y="380" width="78" height="4" rx="2" fill="#f8f1e6" fill-opacity=".6"/></g><path d="M227 110l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" fill="#f8f1e6"/></svg>}
-                  {s.visual === 'motion' && <svg viewBox="0 0 300 520" preserveAspectRatio="xMidYMid slice"><rect width="300" height="520" fill="#344c63"/><circle cx="150" cy="242" r="115" fill="none" stroke="#f8f1e6" stroke-opacity=".22"/><circle cx="150" cy="242" r="81" fill="none" stroke="#d6b981" stroke-opacity=".5"/><circle cx="150" cy="242" r="49" fill="#d6b981"/><path d="M51 244c42-87 127-119 199-49M48 278c53 83 147 85 209 10M92 149c54-33 112-18 149 24" fill="none" stroke="#f8f1e6" stroke-width="3" stroke-linecap="round"/><path d="M214 102l6 15 15 6-15 6-6 15-6-15-15-6 15-6z" fill="#bf8e70"/><rect x="42" y="390" width="216" height="54" rx="4" fill="#203d54" stroke="#f8f1e6" stroke-opacity=".25"/><text x="58" y="411" fill="#d6b981" font-size="8" letter-spacing="2" font-family="sans-serif">IDEA EN MOVIMIENTO</text><path d="M59 427h27l8-10 9 16 10-12 8 6h112" fill="none" stroke="#f8f1e6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>}
-                  {s.visual === '3d' && <svg viewBox="0 0 300 520" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="serviceBottle" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0d8ad"/><stop offset="1" stop-color="#bf8e70"/></linearGradient><radialGradient id="serviceOrb"><stop stop-color="#f8f1e6"/><stop offset=".72" stop-color="#d6b981"/><stop offset="1" stop-color="#9a765f"/></radialGradient></defs><rect width="300" height="520" fill="#9a765f"/><circle cx="72" cy="93" r="92" fill="#d6b981" fill-opacity=".32"/><ellipse cx="145" cy="389" rx="99" ry="24" fill="#203d54" fill-opacity=".38"/><circle cx="210" cy="170" r="49" fill="url(#serviceOrb)"/><rect x="76" y="226" width="112" height="148" rx="25" fill="url(#serviceBottle)"/><rect x="105" y="202" width="54" height="31" rx="8" fill="#203d54"/><rect x="115" y="189" width="34" height="16" rx="4" fill="#d6b981"/><rect x="89" y="274" width="86" height="56" rx="5" fill="#f8f1e6"/><text x="103" y="298" fill="#203d54" font-size="13" font-weight="700" font-family="sans-serif">LUNA</text><text x="104" y="313" fill="#718a9a" font-size="6" letter-spacing="2" font-family="sans-serif">SERUM · 01</text><path d="M46 410h210" stroke="#f8f1e6" stroke-opacity=".45"/><circle cx="64" cy="410" r="4" fill="#f8f1e6"/><circle cx="238" cy="410" r="4" fill="#f8f1e6"/></svg>}
-                  {s.visual === 'pack' && <svg viewBox="0 0 300 520" preserveAspectRatio="xMidYMid slice"><rect width="300" height="520" fill="#b2a58e"/><circle cx="232" cy="107" r="9" fill="#d6b981"/><ellipse cx="151" cy="390" rx="103" ry="23" fill="#203d54" fill-opacity=".2"/><path d="M67 210l80-42 82 43-81 45z" fill="#f8f1e6"/><path d="M67 210l81 46v104l-81-46z" fill="#d6b981"/><path d="M148 256l81-45v104l-81 45z" fill="#203d54"/><path d="M67 210l80-42v88l-80-46z" fill="#bf8e70"/><path d="M105 218l25-13v29l-25-14z" fill="#f8f1e6"/><text x="163" y="299" fill="#f8f1e6" font-size="13" font-weight="700" font-family="sans-serif">LUNA</text><text x="163" y="313" fill="#d6b981" font-size="6" letter-spacing="2" font-family="sans-serif">HECHO CON CALMA</text><circle cx="211" cy="94" r="48" fill="none" stroke="#f8f1e6" stroke-opacity=".35"/><circle cx="211" cy="94" r="35" fill="none" stroke="#d6b981" stroke-opacity=".55"/><path d="M211 76v36m-18-18h36" stroke="#f8f1e6" stroke-width="2" stroke-linecap="round"/></svg>}
-                  <b>0{i + 1}</b>
-                </div>
-                <div class="service-detail__copy">
-                  <p class="service-detail__eyebrow">Servicio 0{i + 1} <span>·</span> Lunaria</p>
-                  <h3 id={`service-title-${i}`}>{s.title}</h3>
-                  <p class="service-detail__text">{s.text}</p>
-                  <p class="service-detail__label">Podemos trabajar en</p>
-                  <ul>{s.includes.map((item) => <li>{item}</li>)}</ul>
-                  <a class="service-detail__cta" href="#contacto">Hablemos de tu idea <span aria-hidden="true">↗</span></a>
-                </div>
-              </article>
-            ))}
-          </div>
+        <div class="services__grid">
+          {services.map((s, i) => (
+            <article class={`service-card service-card--${s.visual} reveal`} style={`--reveal-delay: ${i * 70}ms`}>
+              <div class={`service-card__art service-art--${s.visual}`} aria-hidden="true">
+                <span class="service-card__index">0{i + 1} <i>·</i> LUNARIA</span>
+                {s.visual === 'identity' && <div class="service-art__identity"><div class="identity-sheet"><span class="identity-mark">L</span><b>luna</b><small>ESTUDIO CREATIVO</small><div class="identity-swatches"><i></i><i></i><i></i></div></div><span class="identity-orbit"></span><span class="identity-star">✦</span></div>}
+                {s.visual === 'web' && <div class="service-art__web"><div class="web-window"><div class="web-window__bar"><i></i><i></i><i></i></div><div class="web-window__content"><small>CASA CALMA</small><b>Un espacio<br />para volver<br />a vos.</b><span>Conocé el espacio ↗</span></div><div class="web-window__sun"></div></div><div class="web-phone"><i></i><b></b><span></span><span></span></div></div>}
+                {s.visual === 'social' && <div class="service-art__social"><div class="social-post social-post--back"><span>BRAVA</span><b>rico.<br />simple.<br />de acá.</b><i>✦</i></div><div class="social-post social-post--front"><small>HOY SE COME</small><b>sin vueltas<br />y con ganas.</b><span>UNA MESA, MUCHAS HISTORIAS</span></div><span class="social-spark">✦</span></div>}
+                {s.visual === 'motion' && <div class="service-art__motion"><span class="motion-orbit motion-orbit--one"></span><span class="motion-orbit motion-orbit--two"></span><span class="motion-orbit motion-orbit--three"></span><b>darle<br /><em>movimiento</em><br />a una idea<span class="motion-cursor">↗</span></b><i class="motion-dot"></i></div>}
+                {s.visual === '3d' && <div class="service-art__product"><span class="product-orb"></span><div class="product-bottle"><i></i><b>LUNA<br /><small>SERUM · 01</small></b></div><span class="product-shadow"></span><i class="product-spark">✦</i></div>}
+                {s.visual === 'pack' && <div class="service-art__pack"><span class="pack-sun"></span><div class="pack-box"><i></i><b>LUNA<br /><small>HECHO CON CALMA</small></b></div><div class="pack-side"></div><span class="pack-leaf">✳</span></div>}
+              </div>
+              <div class="service-card__body">
+                <h3 class="service-card__title">{s.title}</h3>
+                <p class="service-card__text">{s.text}</p>
+                <ul class="service-card__includes">{s.includes.map((item) => <li>{item}</li>)}</ul>
+                <a class="service-card__link" href="#contacto">Hablemos de tu idea <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -238,23 +225,6 @@ const year = new Date().getFullYear();
     });
   });
 
-  const serviceOptions = document.querySelectorAll<HTMLButtonElement>('[data-service-select]');
-  const serviceDetails = document.querySelectorAll<HTMLElement>('[data-service-detail]');
-  serviceOptions.forEach((option) => {
-    option.addEventListener('click', () => {
-      const selected = option.dataset.serviceSelect;
-      serviceOptions.forEach((item) => item.setAttribute('aria-pressed', String(item === option)));
-      serviceDetails.forEach((detail) => {
-        const isSelected = detail.dataset.serviceDetail === selected;
-        detail.hidden = !isSelected;
-        if (isSelected) {
-          detail.classList.remove('service-detail--enter');
-          void detail.offsetWidth;
-          detail.classList.add('service-detail--enter');
-        }
-      });
-    });
-  });
 
   const buenosAiresTime = new Intl.DateTimeFormat('es-AR', {
     timeZone: 'America/Argentina/Buenos_Aires',
