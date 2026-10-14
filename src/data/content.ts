@@ -33,7 +33,7 @@ export const services = [
     title: 'Identidad de marca',
     text: 'Logo, paleta, tipografía y manual de marca para que tu proyecto tenga una voz visual propia y coherente.',
     includes: ['Estrategia y concepto', 'Logo y versiones', 'Paleta y tipografías', 'Guía visual de marca'],
-    visual: 'Aa',
+    visual: 'identity',
   },
   {
     title: 'Diseño web & UI/UX',

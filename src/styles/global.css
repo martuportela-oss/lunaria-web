@@ -532,17 +532,9 @@ a:focus-visible {
 .service-detail[hidden] { display: none; }
 .service-detail--enter { animation: service-enter 400ms cubic-bezier(.2,.7,.2,1) both; }
 @keyframes service-enter { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
-.service-detail__visual { position: relative; display: grid; place-items: center; min-height: 100%; overflow: hidden; background: #284760; }
-.service-detail__visual::before { content: ''; position: absolute; width: 78%; aspect-ratio: 1; border: 1px solid rgba(248,241,230,.26); border-radius: 50%; }
-.service-detail__visual::after { content: ''; position: absolute; width: 56%; aspect-ratio: 1; border: 1px solid rgba(214,185,129,.4); border-radius: 50%; transform: rotate(35deg) scaleX(.72); }
-.service-detail__visual span { position: relative; z-index: 1; color: var(--crema); font-size: clamp(2.5rem, 5vw, 5.4rem); font-weight: 600; letter-spacing: -.07em; }
-.service-detail__visual i { position: absolute; top: 22%; right: 18%; width: .65rem; aspect-ratio: 1; border-radius: 50%; background: var(--dorado); box-shadow: 0 0 24px rgba(214,185,129,.7); }
+.service-detail__visual { position: relative; min-height: 100%; overflow: hidden; background: #284760; }
+.service-detail__visual svg { display: block; width: 100%; height: 100%; min-height: 420px; }
 .service-detail__visual b { position: absolute; bottom: 1rem; left: 1rem; color: rgba(248,241,230,.58); font-size: .62rem; font-weight: 400; letter-spacing: .16em; }
-.service-detail--web .service-detail__visual { background: #718a9a; }
-.service-detail--social .service-detail__visual { background: #b98a6a; }
-.service-detail--motion .service-detail__visual { background: #344c63; }
-.service-detail--3d .service-detail__visual { background: #9a765f; }
-.service-detail--pack .service-detail__visual { background: #b2a58e; }
 .service-detail__copy { align-self: center; padding: clamp(1.25rem, 3vw, 2.5rem); }
 .service-detail__eyebrow { margin: 0 0 .8rem; color: var(--dorado); font-size: .57rem; letter-spacing: .17em; text-transform: uppercase; }
 .service-detail__eyebrow span { margin-inline: .25rem; color: var(--cobre); }
@@ -1133,7 +1125,7 @@ a:focus-visible {
   .service-option__title { font-size: .68rem; }
   .service-detail { grid-template-columns: 1fr; }
   .service-detail__visual { min-height: 185px; }
-  .service-detail__visual span { font-size: 3rem; }
+  .service-detail__visual svg { min-height: 185px; max-height: 230px; }
   .service-detail__copy { padding: 1.3rem; }
   .service-detail__copy ul { gap: .45rem .7rem; }
   .project-detail { padding-inline: 18px; }
