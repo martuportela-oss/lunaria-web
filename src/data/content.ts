@@ -71,10 +71,10 @@ export const essence = {
 };
 
 export const about = {
-  title: 'Cercanos en el trato. Estratégicos en cada idea.',
+  title: 'Diseño con intención. Hecho entre personas.',
   text: [
-    'Somos Martu y Nicolás, socios y amigos. En Lunaria unimos nuestras miradas para acompañar cada proyecto de forma cercana, desde la primera charla hasta los últimos detalles.',
-    'Nos involucramos, hacemos preguntas y pensamos cada decisión con intención. Así creamos identidades y experiencias digitales que se sienten propias y ayudan a cada marca a crecer.',
+    'En Lunaria trabajamos codo a codo con cada proyecto: escuchamos, intercambiamos ideas y cuidamos cada detalle, desde la primera charla hasta el resultado final.',
+    'Combinamos estrategia y sensibilidad para crear identidades y experiencias digitales que se sienten propias y ayudan a cada marca a crecer.',
   ],
 };
 
