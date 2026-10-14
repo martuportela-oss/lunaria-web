@@ -65,7 +65,7 @@ const year = new Date().getFullYear();
         </header>
         <div class="services__grid">
           {services.map((s, i) => (
-            <article class={`service-card service-card--${s.visual} reveal`} style={`--reveal-delay: ${i * 70}ms`}>
+            <a class={`service-card service-card--${s.visual} reveal`} href="#contacto" data-service-contact={s.title} aria-label={`Consultar por ${s.title}`} style={`--reveal-delay: ${i * 70}ms`}>
               <div class={`service-card__art service-art--${s.visual}`} aria-hidden="true">
                 <span class="service-card__index">0{i + 1} <i>·</i> LUNARIA</span>
                 {s.visual === 'identity' && <div class="service-art__identity"><div class="identity-sheet"><span class="identity-mark">L</span><b>luna</b><small>ESTUDIO CREATIVO</small><div class="identity-swatches"><i></i><i></i><i></i></div></div><span class="identity-orbit"></span><span class="identity-star">✦</span></div>}
@@ -79,9 +79,9 @@ const year = new Date().getFullYear();
                 <h3 class="service-card__title">{s.title}</h3>
                 <p class="service-card__text">{s.text}</p>
                 <ul class="service-card__includes">{s.includes.map((item) => <li>{item}</li>)}</ul>
-                <a class="service-card__link" href="#contacto">Hablemos de tu idea <span aria-hidden="true">↗</span></a>
+                <span class="service-card__link">Consultar este servicio <span aria-hidden="true">↗</span></span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </div>
@@ -167,7 +167,7 @@ const year = new Date().getFullYear();
           <label>Teléfono<input name="telefono" type="tel" placeholder="Tu teléfono de contacto" autocomplete="tel" required /></label>
           <label>Proyecto<select name="proyecto" required>
             <option value="" disabled selected>¿Qué te gustaría crear?</option>
-            <option>Identidad de marca</option><option>Diseño web & UI/UX</option><option>Motion graphics</option><option>Diseño 3D / producto</option><option>Otro proyecto</option>
+            <option>Identidad de marca</option><option>Diseño web & UI/UX</option><option>Contenido para redes</option><option>Motion graphics</option><option>Diseño 3D</option><option>Packaging & producto</option><option>Otro proyecto</option>
           </select></label>
           <label>Mensaje<textarea name="mensaje" rows="3" placeholder="Contanos sobre tu proyecto, tiempos y lo que necesitás…" required></textarea></label>
           <button class="contact__submit" type="submit">Enviar mensaje <span aria-hidden="true">✦</span></button>
@@ -240,6 +240,15 @@ const year = new Date().getFullYear();
   });
 
   const contactForm = document.querySelector<HTMLFormElement>('#contact-form');
+  const projectSelect = contactForm?.querySelector<HTMLSelectElement>('select[name="proyecto"]');
+  document.querySelectorAll<HTMLAnchorElement>('[data-service-contact]').forEach((serviceCard) => {
+    serviceCard.addEventListener('click', () => {
+      const selectedService = serviceCard.dataset.serviceContact;
+      if (selectedService && projectSelect && Array.from(projectSelect.options).some((option) => option.value === selectedService)) {
+        projectSelect.value = selectedService;
+      }
+    });
+  });
   contactForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const submitButton = contactForm.querySelector<HTMLButtonElement>('.contact__submit');
