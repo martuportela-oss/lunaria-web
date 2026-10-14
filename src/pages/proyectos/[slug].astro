@@ -10,6 +10,7 @@ type Project = (typeof projects)[number] & {
   cover?: ImageMetadata;
   images?: ImageMetadata[];
   sketchfab?: Sketchfab;
+  features?: { title: string; text: string }[];
 };
 
 export function getStaticPaths() {
@@ -35,8 +36,18 @@ const isReal = Boolean(project.real);
         <h1>{project.title}</h1>
         <p class="project-detail__summary">{project.intro}</p>
         <div class="project-detail__idea">
-          <h2>La idea</h2>
+          <h2>Concepto</h2>
           <p>{project.idea}</p>
+          {project.features && (
+            <div class="project-detail__features">
+              <h3>Características del diseño</h3>
+              <dl>
+                {project.features.map((f) => (
+                  <div><dt>{f.title}</dt><dd>{f.text}</dd></div>
+                ))}
+              </dl>
+            </div>
+          )}
           {!isReal && <p>Este ejercicio es una exploración visual provisoria. El proyecto, su marca y sus aplicaciones son ficticios y se reemplazarán por trabajos seleccionados por Lunaria.</p>}
         </div>
       </section>

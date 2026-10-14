@@ -1300,3 +1300,11 @@ a:focus-visible {
   .project-detail__gallery--photos { grid-template-columns: 1fr; }
   .project-detail__model-frame { aspect-ratio: 4 / 5; }
 }
+
+.project-detail__features { margin-top: 1.4rem; }
+.project-detail__features h3 { margin: 0 0 .8rem; color: var(--dorado); font-size: .62rem; font-weight: 500; letter-spacing: .17em; text-transform: uppercase; }
+.project-detail__features dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem 2rem; margin: 0; }
+.project-detail__features dl > div { padding-top: .7rem; border-top: 1px solid rgba(248,241,230,.14); }
+.project-detail__features dt { margin-bottom: .25rem; color: var(--crema); font-size: .82rem; font-weight: 500; }
+.project-detail__features dd { margin: 0; color: rgba(248,241,230,.66); font-size: .78rem; line-height: 1.7; }
+@media (max-width: 639px) { .project-detail__features dl { grid-template-columns: 1fr; } }

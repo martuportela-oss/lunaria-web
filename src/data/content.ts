@@ -97,8 +97,14 @@ export const projects = [
   {
     slug: 'isla-bosch', title: 'Isla Bosch', category: 'Diseño 3D · Punto de venta', description: 'Isla exhibidora para el Sistema Inalámbrico 12V/18V de Bosch.',
     art: 'forma', size: 'wide', type: 'Diseño 3D · Punto de venta', focus: 'Exhibición de producto y comunicación de marca', tools: 'Modelado · Materiales · Iluminación · Render',
-    intro: 'Diseño y visualización 3D de una isla exhibidora para presentar el Sistema Inalámbrico 12V/18V de Bosch en el punto de venta.',
-    idea: 'La estructura combina un módulo de exhibición con estantes, una marquesina iluminada con la marca y paneles gráficos que llevan el mensaje central de la campaña: una batería, muchas posibilidades. El modelo interactivo permite recorrer la pieza desde todos los ángulos.',
+    intro: 'Presentación de diseño y visualización 3D para una isla comercial (punto de venta) destinada a la marca Bosch.',
+    idea: 'El objetivo del diseño es destacar la versatilidad del sistema de baterías intercambiables (“Una batería, muchas posibilidades”) de las líneas 12V y 18V. La estructura busca un equilibrio entre funcionalidad industrial y estética premium.',
+    features: [
+      { title: 'Zonificación', text: 'División clara entre las líneas de producto con paneles gráficos informativos.' },
+      { title: 'Iluminación', text: 'Cenefa superior con iluminación LED perimetral e interna para destacar el producto desde lejos y generar atracción visual.' },
+      { title: 'Materialidad', text: 'Uso de texturas metálicas y acabados en “diamond plate” (suelo antideslizante) en la superficie de exhibición para reforzar la durabilidad y el carácter industrial de la marca.' },
+      { title: 'Almacenamiento', text: 'Góndolas inferiores optimizadas para carga de stock de producto.' },
+    ],
     gallery: ['Vista lateral', 'Detalle superior'],
     real: true,
     cover: islaBosch1,
