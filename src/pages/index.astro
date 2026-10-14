@@ -58,18 +58,39 @@ const year = new Date().getFullYear();
 
     <section id="servicios" class="section">
       <div class="container">
-        <header class="section__head">
+        <header class="section__head services__head reveal">
           <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Servicios</p>
-          <h2>Lo que hacemos.</h2>
+          <h2>¿Qué te gustaría crear?</h2>
+          <p class="lead">Elegí un área y descubrí cómo podemos darle forma a tu idea.</p>
         </header>
-        <div class="grid grid--services">
-          {services.map((s, i) => (
-            <article class="card reveal" style={`--reveal-delay: ${i * 90}ms`}>
-              <span class="card__num">0{i + 1}</span>
-              <h3>{s.title}</h3>
-              <p>{s.text}</p>
-            </article>
-          ))}
+        <div class="services__experience reveal">
+          <div class="services__list" role="group" aria-label="Elegí un servicio">
+            {services.map((s, i) => (
+              <button class="service-option" type="button" data-service-select={i} aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`service-detail-${i}`}>
+                <span class="service-option__number">0{i + 1}</span>
+                <span class="service-option__title">{s.title}</span>
+                <span class="service-option__arrow" aria-hidden="true">↗</span>
+              </button>
+            ))}
+          </div>
+          <div class="services__details" aria-live="polite">
+            {services.map((s, i) => (
+              <article id={`service-detail-${i}`} class={`service-detail service-detail--${s.visual}`} data-service-detail={i} aria-labelledby={`service-title-${i}`} hidden={i !== 0}>
+                <div class="service-detail__visual" aria-hidden="true">
+                  <span>{s.visual === 'web' ? 'UI/UX' : s.visual === 'social' ? '✦' : s.visual === 'motion' ? '〰' : s.visual === '3d' ? '3D' : s.visual === 'pack' ? '□' : 'Aa'}</span>
+                  <i></i><b>0{i + 1}</b>
+                </div>
+                <div class="service-detail__copy">
+                  <p class="service-detail__eyebrow">Servicio 0{i + 1} <span>·</span> Lunaria</p>
+                  <h3 id={`service-title-${i}`}>{s.title}</h3>
+                  <p class="service-detail__text">{s.text}</p>
+                  <p class="service-detail__label">Podemos trabajar en</p>
+                  <ul>{s.includes.map((item) => <li>{item}</li>)}</ul>
+                  <a class="service-detail__cta" href="#contacto">Hablemos de tu idea <span aria-hidden="true">↗</span></a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -208,6 +229,24 @@ const year = new Date().getFullYear();
         const cardCategory = card.dataset.projectCategory ?? '';
         const visible = category === 'Todos' || (category === 'Diseño web' && cardCategory.includes('Diseño web')) || (category === 'Motion' && cardCategory.includes('Motion')) || (category === '3D' && cardCategory.includes('3D')) || category === 'Identidad' && cardCategory.includes('Identidad');
         card.hidden = !visible;
+      });
+    });
+  });
+
+  const serviceOptions = document.querySelectorAll<HTMLButtonElement>('[data-service-select]');
+  const serviceDetails = document.querySelectorAll<HTMLElement>('[data-service-detail]');
+  serviceOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+      const selected = option.dataset.serviceSelect;
+      serviceOptions.forEach((item) => item.setAttribute('aria-pressed', String(item === option)));
+      serviceDetails.forEach((detail) => {
+        const isSelected = detail.dataset.serviceDetail === selected;
+        detail.hidden = !isSelected;
+        if (isSelected) {
+          detail.classList.remove('service-detail--enter');
+          void detail.offsetWidth;
+          detail.classList.add('service-detail--enter');
+        }
       });
     });
   });

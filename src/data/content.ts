@@ -32,26 +32,38 @@ export const services = [
   {
     title: 'Identidad de marca',
     text: 'Logo, paleta, tipografía y manual de marca para que tu proyecto tenga una voz visual propia y coherente.',
+    includes: ['Estrategia y concepto', 'Logo y versiones', 'Paleta y tipografías', 'Guía visual de marca'],
+    visual: 'Aa',
   },
   {
     title: 'Diseño web & UI/UX',
     text: 'Sitios y experiencias digitales intuitivas, atractivas y pensadas para las personas que las usan.',
+    includes: ['Arquitectura y wireframes', 'Diseño UI responsive', 'Prototipo de interacción', 'Sistema visual digital'],
+    visual: 'web',
   },
   {
     title: 'Contenido para redes',
     text: 'Plantillas, estética y dirección visual para que tu comunidad reconozca tu universo a primera vista.',
+    includes: ['Dirección visual', 'Plantillas para redes', 'Piezas para campañas', 'Guía para publicaciones'],
+    visual: 'social',
   },
   {
     title: 'Motion graphics',
     text: 'Animación gráfica para comunicar ideas, darle ritmo a tu contenido y hacer que tu marca se mueva.',
+    includes: ['Concepto y storyboard', 'Animación 2D', 'Tipografía en movimiento', 'Adaptación a formatos'],
+    visual: 'motion',
   },
   {
     title: 'Diseño 3D',
     text: 'Visualización y animación 3D de productos, objetos y conceptos para presentar cada detalle con impacto.',
+    includes: ['Modelado y materiales', 'Iluminación y render', 'Animación de producto', 'Imágenes para campañas'],
+    visual: '3d',
   },
   {
     title: 'Packaging & producto',
     text: 'Diseño de envases y piezas aplicadas al producto, de la idea inicial a una presentación memorable.',
+    includes: ['Diseño de envase', 'Etiquetas y variantes', 'Visualización de producto', 'Preparación para imprenta'],
+    visual: 'pack',
   },
 ];
 
