@@ -7,16 +7,15 @@ export const site = {
   title: 'Lunaria | Estudio creativo',
   description:
     'Lunaria crea identidades, experiencias digitales y piezas visuales para marcas con ideas propias.',
-  // Contacto por confirmar con Lunaria.
-  email: 'hola@lunaria.com',
-  instagram: 'https://instagram.com/',
-  instagramHandle: 'Instagram',
+  email: 'lunaria.estudionm@gmail.com',
+  instagram: 'https://www.instagram.com/lunaria.estudiocreativo/',
+  instagramHandle: '@lunaria.estudiocreativo',
   whatsapp: 'https://wa.me/',
 };
 
 export const nav = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Esencia', href: '#esencia' },
+  { label: 'Universos', href: '#universos' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Contacto', href: '#contacto' },
 ];
@@ -72,13 +71,15 @@ export const essence = {
 };
 
 export const about = {
-  title: 'Detrás de Lunaria.',
+  title: 'Dos miradas, un mismo universo.',
   text: [
-    'Somos un estudio creativo cercano y multidisciplinario. Unimos diseño, tecnología y movimiento para ayudar a las marcas a verse, sentirse y funcionar mejor.',
+    'Somos Martu y Nicolás: socios, amigos y las personas detrás de Lunaria. Nos une la curiosidad, las ganas de crear y esa emoción de ver una idea convertirse en algo real.',
+    'Nos vas a encontrar pensando en equipo, compartiendo referencias y haciendo muchas preguntas. Nos gusta conocer a cada persona detrás de una marca y acompañar su proyecto de cerca, con confianza, sensibilidad y buena energía.',
+    'Porque para nosotros diseñar también es encontrarnos, escucharnos y construir algo juntos.',
   ],
 };
 
 export const contact = {
-  title: 'Hagamos que tu próxima idea cobre vida.',
-  text: 'Contanos qué estás imaginando. Diseñamos la identidad, la experiencia y las piezas que tu marca necesita para crecer.',
+  title: '¿Tenés un proyecto en mente?',
+  text: 'Contanos qué estás imaginando, en qué etapa está tu proyecto y qué te gustaría crear. Nos va a encantar leerte.',
 };
