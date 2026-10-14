@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import { projects, site } from '../../data/content';
+
+type Project = (typeof projects)[number];
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props as { project: Project };
+const artLabel = `${project.title}, imagen conceptual ficticia de muestra`;
+---
+
+<Base title={`${project.title} · Proyectos | ${site.name}`} description={project.intro}>
+  <main class="project-detail">
+    <header class="project-detail__top">
+      <a class="project-detail__brand" href="/#inicio" aria-label="Lunaria, inicio">Lunaria<span>✦</span></a>
+      <a class="project-detail__back" href="/#proyectos">← Volver a proyectos</a>
+    </header>
+
+    <div class="project-detail__content">
+      <section class="project-detail__intro">
+        <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Concepto ficticio · Contenido de muestra</p>
+        <p class="project-detail__type">{project.category}</p>
+        <h1>{project.title}</h1>
+        <p class="project-detail__summary">{project.intro}</p>
+        <div class="project-detail__idea">
+          <h2>La idea</h2>
+          <p>{project.idea}</p>
+          <p>Este ejercicio es una exploración visual provisoria. El proyecto, su marca y sus aplicaciones son ficticios y se reemplazarán por trabajos seleccionados por Lunaria.</p>
+        </div>
+      </section>
+
+      <figure class={`project-detail__cover project--${project.art}`}>
+        <div class="project__art" role="img" aria-label={artLabel}>
+          {project.art === 'brava' && <div class="project-art-brava"><span>BRAVA</span><small>rico · simple · de acá</small><i>!</i></div>}
+          {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
+          {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
+          {project.art === 'forma' && <div class="project-art-forma"><span>FORMA<br />01</span><i></i><small>objeto en estudio</small></div>}
+        </div>
+        <figcaption>Dirección visual conceptual · Lunaria</figcaption>
+      </figure>
+
+      <section class="project-detail__gallery" aria-label="Imágenes conceptuales adicionales">
+        {project.gallery.map((label, index) => (
+          <figure class={`detail-gallery__item detail-gallery__item--${project.art} detail-gallery__item--${index + 1}`}>
+            <div class="detail-gallery__visual" role="img" aria-label={`${label}: visual conceptual ficticia`}>
+              <span>{project.title}</span><i aria-hidden="true"></i><b>{String(index + 1).padStart(2, '0')}</b>
+            </div>
+            <figcaption>{label}<small>Imagen de concepto · Muestra ficticia</small></figcaption>
+          </figure>
+        ))}
+      </section>
+
+      <section class="project-detail__facts" aria-label="Ficha del concepto">
+        <div><span>Tipo de proyecto</span><p>{project.type}</p></div>
+        <div><span>Enfoque</span><p>{project.focus}</p></div>
+        <div><span>Áreas exploradas</span><p>{project.tools}</p></div>
+        <div><span>Estado</span><p>Concepto ficticio · Reemplazar por un proyecto seleccionado</p></div>
+      </section>
+
+      <footer class="project-detail__footer">
+        <p>¿Imaginamos algo para tu marca?</p>
+        <a class="btn" href="/#contacto">Hablemos de tu idea <span aria-hidden="true">✦</span></a>
+      </footer>
+    </div>
+  </main>
+</Base>

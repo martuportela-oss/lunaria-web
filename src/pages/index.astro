@@ -91,18 +91,20 @@ const year = new Date().getFullYear();
         <div class="projects__grid">
           {projects.map((project, i) => (
             <article class={`project project--${project.art} project--${project.size} reveal`} data-project-category={project.category} style={`--reveal-delay: ${i * 80}ms`}>
-              <div class="project__art" aria-hidden="true">
-                {project.art === 'brava' && <div class="project-art-brava"><span>BRAVA</span><small>rico · simple · de acá</small><i>!</i></div>}
-                {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
-                {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
-                {project.art === 'forma' && <div class="project-art-forma"><span>FORMA<br />01</span><i></i><small>objeto en estudio</small></div>}
-              </div>
-              <div class="project__meta">
-                <div><span class="project__category">{project.category}</span><h3>{project.title}</h3></div>
-                <span class="project__arrow" aria-hidden="true">↗</span>
-              </div>
-              <p class="project__description">{project.description}</p>
-              <span class="project__sample">Concepto de muestra</span>
+              <a class="project__link" href={`/proyectos/${project.slug}/`} aria-label={`Ver más sobre el concepto ${project.title}`}>
+                <div class="project__art" aria-hidden="true">
+                  {project.art === 'brava' && <div class="project-art-brava"><span>BRAVA</span><small>rico · simple · de acá</small><i>!</i></div>}
+                  {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
+                  {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
+                  {project.art === 'forma' && <div class="project-art-forma"><span>FORMA<br />01</span><i></i><small>objeto en estudio</small></div>}
+                </div>
+                <div class="project__meta">
+                  <div><span class="project__category">{project.category}</span><h3>{project.title}</h3></div>
+                  <span class="project__arrow" aria-hidden="true">↗</span>
+                </div>
+                <p class="project__description">{project.description}</p>
+                <span class="project__sample">Concepto de muestra · Ver proyecto</span>
+              </a>
             </article>
           ))}
         </div>

@@ -57,10 +57,34 @@ export const services = [
 
 // Ejemplos conceptuales provisorios para definir el estilo de la sección.
 export const projects = [
-  { title: 'Brava', category: 'Identidad', description: 'Una identidad enérgica para una marca gastronómica ficticia.', art: 'brava', size: 'wide' },
-  { title: 'Casa calma', category: 'Diseño web · UI/UX', description: 'Una experiencia digital simple para un espacio de bienestar imaginario.', art: 'casa', size: 'narrow' },
-  { title: 'Pausa', category: 'Motion graphics', description: 'Un concepto de movimiento inspirado en bajar el ritmo.', art: 'pausa', size: 'narrow' },
-  { title: 'Forma 01', category: 'Diseño 3D · Producto', description: 'Exploración visual 3D de un objeto cotidiano.', art: 'forma', size: 'wide' },
+  {
+    slug: 'brava', title: 'Brava', category: 'Identidad', description: 'Una identidad enérgica para una marca gastronómica ficticia.',
+    art: 'brava', size: 'wide', type: 'Identidad de marca', focus: 'Energía, color y una voz propia', tools: 'Estrategia · Dirección de arte · Sistema visual',
+    intro: 'Una marca gastronómica inventada para explorar cómo una identidad puede sentirse cercana, intensa y fácil de reconocer.',
+    idea: 'Brava nace como un lugar imaginario de cocina simple, sabores intensos y encuentros sin protocolo. El concepto cruza una paleta cálida con una tipografía de mucha presencia para construir una marca que se vea tan expresiva como se siente.',
+    gallery: ['Sistema visual', 'Piezas de marca', 'Paleta & tipografía'],
+  },
+  {
+    slug: 'casa-calma', title: 'Casa calma', category: 'Diseño web · UI/UX', description: 'Una experiencia digital simple para un espacio de bienestar imaginario.',
+    art: 'casa', size: 'narrow', type: 'Diseño web · UI/UX', focus: 'Claridad, pausa y navegación simple', tools: 'Arquitectura · Interfaz · Prototipo',
+    intro: 'Un concepto digital ficticio para un espacio de bienestar que invita a bajar el ritmo desde el primer momento.',
+    idea: 'La propuesta imagina una web serena y fácil de recorrer, donde cada decisión ayuda a encontrar una actividad, conocer el espacio o reservar una clase. La composición editorial y los tonos suaves transmiten calma sin perder claridad.',
+    gallery: ['Inicio & navegación', 'Agenda de actividades', 'Experiencia móvil'],
+  },
+  {
+    slug: 'pausa', title: 'Pausa', category: 'Motion graphics', description: 'Un concepto de movimiento inspirado en bajar el ritmo.',
+    art: 'pausa', size: 'narrow', type: 'Motion graphics', focus: 'Ritmo, atmósfera y movimiento', tools: 'Dirección de arte · Animación · Sonido',
+    intro: 'Una pieza de movimiento conceptual sobre la importancia de hacer espacio y volver a lo esencial.',
+    idea: 'Formas suaves, pausas y transiciones lentas construyen una pequeña identidad en movimiento. El ejercicio explora cómo el ritmo y el sonido también pueden expresar la personalidad de una marca.',
+    gallery: ['Formas en movimiento', 'Exploración de color', 'Cuadro de cierre'],
+  },
+  {
+    slug: 'forma-01', title: 'Forma 01', category: 'Diseño 3D · Producto', description: 'Exploración visual 3D de un objeto cotidiano.',
+    art: 'forma', size: 'wide', type: 'Visualización 3D', focus: 'Volumen, material y luz', tools: 'Modelado · Materiales · Iluminación',
+    intro: 'Un estudio 3D ficticio para presentar un objeto cotidiano desde una mirada cálida y contemporánea.',
+    idea: 'La pieza propone una forma simple, superficies suaves y una iluminación envolvente. El foco está en explorar materiales y volumen para darle presencia al producto antes de tener una fotografía final.',
+    gallery: ['Estudio de producto', 'Detalle de material', 'Prueba de iluminación'],
+  },
 ];
 
 export const pillars = [
