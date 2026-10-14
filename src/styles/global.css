@@ -601,49 +601,51 @@ a:focus-visible {
 
 .about__portraits {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: end;
-  gap: 1rem;
-  min-height: 410px;
-  max-width: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(.8rem, 2.5vw, 1.5rem);
+  min-height: 430px;
+  max-width: 660px;
   width: 100%;
   margin-inline: auto;
 }
 
 .about__photo {
   position: relative;
-  width: 100%;
+  flex: 1 1 0;
+  min-width: 0;
   margin: 0;
-  border-radius: 160px 160px 20px 20px;
+  padding: .45rem;
+  border-radius: 48% 48% 1.1rem 1.1rem;
   overflow: hidden;
-  border: 5px solid rgba(248, 241, 230, .72);
-  background: var(--crema);
-  box-shadow: 0 24px 60px -36px rgba(30, 58, 82, .55);
+  border: 1px solid rgba(30, 58, 82, .13);
+  background: rgba(255, 255, 255, .58);
+  box-shadow: 0 24px 60px -36px rgba(30, 58, 82, .45);
   transition: transform 450ms cubic-bezier(.2,.7,.2,1), box-shadow 400ms ease;
 }
 
 .about__photo--martu {
-  transform: translateY(-16px);
+  transform: translateY(-20px) rotate(-3deg);
 }
 
 .about__photo--nicolas {
-  transform: translateY(14px);
+  transform: translateY(20px) rotate(3deg);
 }
-.about__photo:hover { transform: translateY(-10px); box-shadow: 0 32px 72px -34px rgba(30, 58, 82, .62); }
+.about__photo:hover { transform: translateY(-8px) rotate(0); box-shadow: 0 32px 72px -34px rgba(30, 58, 82, .55); }
 
 .about__img {
   width: 100%;
-  aspect-ratio: 0.76;
+  aspect-ratio: .82;
   object-fit: cover;
-  object-position: center 30%;
-  border-radius: 150px 150px 14px 14px;
+  object-position: center 35%;
+  border-radius: 46% 46% .8rem .8rem;
 }
 
 .about__caption {
   display: grid;
   gap: 0.08rem;
-  padding: 0.8rem 0.25rem 0.65rem;
+  padding: .75rem .25rem .55rem;
   color: var(--azul);
   text-align: center;
   font-size: 0.76rem;
@@ -662,7 +664,7 @@ a:focus-visible {
 .about__note {
   position: absolute;
   left: 50%;
-  bottom: -1rem;
+  bottom: .15rem;
   width: max-content;
   max-width: calc(100% - 2rem);
   margin: 0;
@@ -992,11 +994,11 @@ a:focus-visible {
   .work__caption span:last-child { text-align: left; }
   .project { min-height: min(105vw, 390px); }
   .about { gap: 2rem; }
-  .about__portraits { min-height: 310px; max-width: 460px; gap: .7rem; }
-  .about__photo { max-width: 270px; border-width: 4px; }
-  .about__photo--martu { transform: translateY(-8px); }
-  .about__photo--nicolas { transform: translateY(8px); }
-  .about__note { bottom: -1.2rem; font-size: .62rem; }
+  .about__portraits { min-height: 330px; max-width: 480px; gap: .7rem; }
+  .about__photo { max-width: 270px; padding: .32rem; }
+  .about__photo--martu { transform: translateY(-10px) rotate(-3deg); }
+  .about__photo--nicolas { transform: translateY(10px) rotate(3deg); }
+  .about__note { bottom: .05rem; font-size: .62rem; }
   .about__caption { padding: .65rem .25rem; font-size: .68rem; }
   .about__caption span { font-size: .5rem; }
   .contact__panel { gap: 2rem; }
