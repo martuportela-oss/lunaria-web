@@ -22,6 +22,10 @@ npm run build    # genera /dist
 | Colores, tipografía, estilos | `src/styles/global.css`     |
 | Logo e imágenes              | `src/assets/`               |
 
+## Formulario de contacto
+
+El formulario envía los datos con AJAX a FormSubmit, usando el correo configurado en `src/data/content.ts`. La primera vez, FormSubmit envía un correo de verificación a Lunaria que hay que confirmar una sola vez. A partir de ahí, las consultas llegan al correo sin abrir la aplicación de email del visitante.
+
 Lo marcado con `TODO` en `content.ts` es provisorio (mail, redes, proyectos, historia).
 
 ## Flujo de trabajo entre dos personas

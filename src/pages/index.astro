@@ -124,7 +124,9 @@ const year = new Date().getFullYear();
             </a>
           </div>
         </div>
-        <form class="contact__form" action={`mailto:${site.email}`} method="post" enctype="text/plain">
+        <form id="contact-form" class="contact__form" action={`https://formsubmit.co/ajax/${site.email}`} data-contact-email={site.email} method="post">
+          <input type="hidden" name="_subject" value="Nueva consulta desde el sitio de Lunaria" />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" hidden />
           <label>Nombre<input name="nombre" type="text" placeholder="Tu nombre completo" autocomplete="name" required /></label>
           <label>Email<input name="email" type="email" placeholder="tu@email.com" autocomplete="email" required /></label>
           <label>Proyecto<select name="proyecto" required>
@@ -133,6 +135,7 @@ const year = new Date().getFullYear();
           </select></label>
           <label>Mensaje<textarea name="mensaje" rows="3" placeholder="Contanos sobre tu proyecto, tiempos y lo que necesitás…" required></textarea></label>
           <button class="contact__submit" type="submit">Enviar mensaje <span aria-hidden="true">✦</span></button>
+          <p class="contact__status" data-contact-status role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -179,6 +182,41 @@ const year = new Date().getFullYear();
   document.querySelectorAll<HTMLAnchorElement>('[data-whatsapp-phone]').forEach((link) => {
     const phone = link.dataset.whatsappPhone;
     if (phone) link.href = `https://wa.me/${phone}?text=${encodeURIComponent(welcome)}`;
+  });
+
+  const contactForm = document.querySelector<HTMLFormElement>('#contact-form');
+  contactForm?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const submitButton = contactForm.querySelector<HTMLButtonElement>('.contact__submit');
+    const status = contactForm.querySelector<HTMLElement>('[data-contact-status]');
+    if (!submitButton || !status) return;
+
+    submitButton.disabled = true;
+    submitButton.setAttribute('aria-busy', 'true');
+    status.dataset.state = 'loading';
+    status.textContent = 'Enviando tu mensaje…';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(contactForm).entries())),
+      });
+      const result = await response.json() as { success?: boolean | string };
+      if (!response.ok || (result.success !== true && result.success !== 'true')) {
+        throw new Error('No se pudo enviar el formulario');
+      }
+
+      status.dataset.state = 'success';
+      status.textContent = '¡Gracias! Recibimos tu mensaje y pronto nos pondremos en contacto.';
+      contactForm.reset();
+    } catch {
+      status.dataset.state = 'error';
+      status.textContent = `No pudimos enviar tu mensaje. Probá de nuevo o escribinos a ${contactForm.dataset.contactEmail}.`;
+    } finally {
+      submitButton.disabled = false;
+      submitButton.removeAttribute('aria-busy');
+    }
   });
 
   const revealItems = document.querySelectorAll('.reveal');

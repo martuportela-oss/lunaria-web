@@ -801,6 +801,10 @@ a:focus-visible {
 .contact__submit:hover { transform: translateY(-3px); background: #e7d0a0; }
 .contact__submit span { transition: transform .4s ease; }
 .contact__submit:hover span { transform: rotate(90deg); }
+.contact__submit:disabled { opacity: .72; cursor: wait; transform: none; }
+.contact__status { min-height: 1.4em; margin: .25rem 0 0; color: var(--celeste); font-size: .82rem; line-height: 1.5; }
+.contact__status[data-state="success"] { color: var(--dorado); }
+.contact__status[data-state="error"] { color: #ffd2c6; }
 
 @media (min-width: 800px) {
   .contact__panel { grid-template-columns: 1fr 1fr; gap: clamp(3.5rem, 8vw, 7rem); }
