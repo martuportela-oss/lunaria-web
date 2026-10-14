@@ -3,84 +3,83 @@
 
 export const site = {
   name: 'Lunaria',
-  tagline: 'Estudio creativo',
+  tagline: 'Diseño con intención',
   title: 'Lunaria | Estudio creativo',
   description:
-    'Lunaria es un estudio creativo que fusiona diseño, sensibilidad y narrativa visual para acompañar proyectos que inspiran.',
-  // TODO: reemplazar por los datos reales
-  email: 'hola@lunaria.com',
-  instagram: 'https://instagram.com/lunaria',
-  instagramHandle: '@lunaria',
-  whatsapp: 'https://wa.me/540000000000',
+    'Lunaria crea identidades, experiencias digitales y piezas visuales para marcas con ideas propias.',
+  email: 'lunaria.estudionm@gmail.com',
+  instagram: 'https://www.instagram.com/lunaria.estudiocreativo/',
+  instagramHandle: '@lunaria.estudiocreativo',
+  whatsapp: 'https://wa.me/',
 };
 
 export const nav = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Esencia', href: '#esencia' },
-  { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Universos', href: '#universos' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
 export const hero = {
-  eyebrow: 'Estudio creativo',
-  title: 'Diseño para ideas extraordinarias.',
-  text: 'Fusionamos diseño, sensibilidad y narrativa visual para acompañar proyectos creativos que inspiran.',
-  cta: { label: 'Hablemos de tu proyecto', href: '#contacto' },
-  ctaSecondary: { label: 'Ver servicios', href: '#servicios' },
+  eyebrow: 'Identidad · Digital · Movimiento',
+  title: 'Tu marca merece un universo propio.',
+  text: 'Creamos identidades visuales, experiencias digitales y contenido en movimiento para marcas con algo propio que decir.',
+  cta: { label: 'Hablemos de tu idea', href: '#contacto' },
+  ctaSecondary: { label: 'Conocé lo que hacemos', href: '#servicios' },
 };
 
-// TODO: ajustar a los servicios reales de la agencia
 export const services = [
   {
     title: 'Identidad de marca',
     text: 'Logo, paleta, tipografía y manual de marca para que tu proyecto tenga una voz visual propia y coherente.',
   },
   {
-    title: 'Diseño editorial',
-    text: 'Portadas, maquetación y piezas gráficas para autoras, creadoras y proyectos del mundo literario.',
+    title: 'Diseño web & UI/UX',
+    text: 'Sitios y experiencias digitales intuitivas, atractivas y pensadas para las personas que las usan.',
   },
   {
     title: 'Contenido para redes',
     text: 'Plantillas, estética y dirección visual para que tu comunidad reconozca tu universo a primera vista.',
   },
   {
-    title: 'Papelería y merchandising',
-    text: 'Tarjetas, packaging y piezas físicas pensadas con intención y atención al detalle.',
+    title: 'Motion graphics',
+    text: 'Animación gráfica para comunicar ideas, darle ritmo a tu contenido y hacer que tu marca se mueva.',
+  },
+  {
+    title: 'Diseño 3D',
+    text: 'Visualización y animación 3D de productos, objetos y conceptos para presentar cada detalle con impacto.',
+  },
+  {
+    title: 'Packaging & producto',
+    text: 'Diseño de envases y piezas aplicadas al producto, de la idea inicial a una presentación memorable.',
   },
 ];
 
 export const pillars = [
-  { icon: 'moon', title: 'Inspiración', text: 'Encontramos inspiración en las ideas, las formas, los colores y todo lo que despierta la creatividad.' },
-  { icon: 'leaf', title: 'Sensibilidad', text: 'Valoramos los detalles, la estética cuidada y la comunicación visual que transmite emociones.' },
-  { icon: 'star', title: 'Estética', text: 'Una identidad visual coherente, atemporal y versátil, con un estilo elegante y moderno.' },
-  { icon: 'heart', title: 'Conexión', text: 'Diseñamos para crear vínculos entre ideas, personas y marcas que inspiran.' },
+  { icon: 'moon', title: 'Estrategia', text: 'Entendemos cada desafío para diseñar una respuesta clara y alineada con tus objetivos.' },
+  { icon: 'leaf', title: 'Sensibilidad', text: 'Cuidamos los detalles y creamos comunicación visual que conecta con las personas.' },
+  { icon: 'star', title: 'Innovación', text: 'Exploramos formatos, tecnología y nuevas formas de presentar cada idea.' },
+  { icon: 'heart', title: 'Colaboración', text: 'Trabajamos cerca de cada equipo para transformar ideas en experiencias reales.' },
 ];
 
 export const essence = {
   title: 'Creatividad con propósito.',
   text: [
-    'Lunaria nace de la pasión por el diseño, la narrativa visual y el mundo literario. Es un espacio donde las ideas se convierten en identidades, y cada proyecto se trabaja con intención, sensibilidad y atención al detalle.',
-    'Creemos en el poder de una estética cuidada para conectar emociones, contar historias y dar vida a marcas que inspiran.',
+    'Lunaria combina estrategia y diseño para construir marcas con una identidad clara y una presencia visual consistente.',
+    'Desde la primera idea hasta la experiencia digital, cada proyecto se trabaja con curiosidad, sensibilidad y atención al detalle.',
   ],
 };
 
-// TODO: reemplazar por proyectos reales (imagen, cliente, resultado)
-export const projects = [
-  { tag: 'Identidad', title: 'Proyecto 01', note: 'Próximamente' },
-  { tag: 'Editorial', title: 'Proyecto 02', note: 'Próximamente' },
-  { tag: 'Redes', title: 'Proyecto 03', note: 'Próximamente' },
-];
-
 export const about = {
-  title: 'Detrás de Lunaria.',
+  title: 'Dos miradas, un mismo universo.',
   text: [
-    // TODO: contar la historia real de las dos personas del estudio
-    'Somos un estudio creativo pequeño y cercano. Trabajamos de la mano con cada cliente para entender su historia y traducirla en una identidad visual con alma.',
+    'Somos Martu y Nicolás: socios, amigos y las personas detrás de Lunaria. Nos une la curiosidad, las ganas de crear y esa emoción de ver una idea convertirse en algo real.',
+    'Nos vas a encontrar pensando en equipo, compartiendo referencias y haciendo muchas preguntas. Nos gusta conocer a cada persona detrás de una marca y acompañar su proyecto de cerca, con confianza, sensibilidad y buena energía.',
+    'Porque para nosotros diseñar también es encontrarnos, escucharnos y construir algo juntos.',
   ],
 };
 
 export const contact = {
-  title: 'Cuéntanos tu historia.',
-  text: 'Si tenés una idea, un proyecto o una marca por nacer, escribinos. Respondemos con cariño y sin apuro.',
+  title: '¿Tenés un proyecto en mente?',
+  text: 'Contanos qué estás imaginando, en qué etapa está tu proyecto y qué te gustaría crear. Nos va a encantar leerte.',
 };

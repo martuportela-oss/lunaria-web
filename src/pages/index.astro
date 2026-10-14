@@ -2,28 +2,35 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import logo from '../assets/logo.jpeg';
-import retrato from '../assets/retrato.png';
-import { site, nav, hero, services, pillars, essence, projects, about, contact } from '../data/content';
+import nicolas from '../assets/nicolas-original.jpeg';
+import martu from '../assets/martu-retrato.png';
+import showcase from '../assets/studio-showcase.png';
+import { site, nav, hero, services, about, contact } from '../data/content';
 
 const year = new Date().getFullYear();
 
-const icons: Record<string, string> = {
-  moon: 'M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z',
-  leaf: 'M12 21v-8m0 0c0-4 2-7 6-8-.5 4-2 7-6 8zm0 0c0-3-1.5-5-5-5.5.3 3 2 5 5 5.5z',
-  star: 'M12 2c.8 5.5 4.5 9.2 10 10-5.5.8-9.2 4.5-10 10-.8-5.5-4.5-9.2-10-10 5.5-.8 9.2-4.5 10-10z',
-  heart: 'M12 20.5S3.5 15 3.5 9A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8.5 2c0 6-8.5 11.5-8.5 11.5z',
-};
 ---
 
 <Base>
+  <div class="intro" aria-label="Lunaria" role="presentation">
+    <div class="logo-crop logo-crop--intro">
+      <Image src={logo} alt="" width={1600} height={900} loading="eager" class="logo-crop__image" />
+    </div>
+  </div>
   <header class="header">
     <div class="container header__inner">
-      <a href="#inicio" class="brand" aria-label="Lunaria, inicio">
-        <Image src={logo} alt="Lunaria estudio creativo" height={112} loading="eager" class="brand__logo" />
+      <a href="#inicio" class="brand logo-crop logo-crop--header" aria-label="Lunaria, inicio">
+        <Image src={logo} alt="Lunaria" width={1600} height={900} loading="eager" class="logo-crop__image" />
       </a>
       <nav class="nav" aria-label="Principal">
         {nav.map((item) => <a href={item.href}>{item.label}</a>)}
       </nav>
+      <details class="mobile-nav">
+        <summary aria-label="Abrir menú de navegación"><span></span><span></span></summary>
+        <nav class="mobile-nav__panel" aria-label="Navegación móvil">
+          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+        </nav>
+      </details>
       <a href="#contacto" class="btn btn--small">Escribinos</a>
     </div>
   </header>
@@ -33,12 +40,18 @@ const icons: Record<string, string> = {
       <span class="blob blob--hero-a" aria-hidden="true"></span>
       <span class="blob blob--hero-b" aria-hidden="true"></span>
       <div class="container hero__inner">
-        <p class="eyebrow"><span class="spark" aria-hidden="true"></span>{hero.eyebrow}</p>
-        <h1>{hero.title}</h1>
-        <p class="lead">{hero.text}</p>
-        <div class="hero__actions">
-          <a class="btn" href={hero.cta.href}>{hero.cta.label}</a>
-          <a class="btn btn--ghost" href={hero.ctaSecondary.href}>{hero.ctaSecondary.label}</a>
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="spark" aria-hidden="true"></span>{hero.eyebrow}</p>
+          <h1>{hero.title}</h1>
+          <p class="lead">{hero.text}</p>
+          <div class="hero__actions">
+            <a class="btn" href={hero.cta.href}>{hero.cta.label}</a>
+            <a class="btn btn--ghost" href={hero.ctaSecondary.href}>{hero.ctaSecondary.label}</a>
+          </div>
+        </div>
+        <div class="hero__art">
+          <Image src={showcase} alt="Muestra visual de identidad de marca, diseño web, motion graphics y producto 3D" class="hero__showcase" loading="eager" />
+          <span class="hero__seal" aria-hidden="true">diseño<br />en movimiento</span>
         </div>
       </div>
     </section>
@@ -49,9 +62,9 @@ const icons: Record<string, string> = {
           <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Servicios</p>
           <h2>Lo que hacemos.</h2>
         </header>
-        <div class="grid grid--4">
+        <div class="grid grid--services">
           {services.map((s, i) => (
-            <article class="card">
+            <article class="card reveal" style={`--reveal-delay: ${i * 90}ms`}>
               <span class="card__num">0{i + 1}</span>
               <h3>{s.title}</h3>
               <p>{s.text}</p>
@@ -61,53 +74,34 @@ const icons: Record<string, string> = {
       </div>
     </section>
 
-    <section id="esencia" class="section section--navy">
-      <div class="container essence">
-        <div>
-          <p class="eyebrow eyebrow--light"><span class="spark" aria-hidden="true"></span>Esencia de marca</p>
-          <h2>{essence.title}</h2>
-          {essence.text.map((t) => <p class="lead lead--light">{t}</p>)}
-        </div>
-        <ul class="pillars">
-          {pillars.map((p) => (
-            <li class="pillar">
-              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
-                <path d={icons[p.icon]} />
-              </svg>
-              <h3>{p.title}</h3>
-              <p>{p.text}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-
-    <section id="proyectos" class="section">
+    <section id="universos" class="section section--navy work">
       <div class="container">
-        <header class="section__head">
-          <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Proyectos</p>
-          <h2>Historias que dejan huella.</h2>
+        <header class="section__head work__head reveal">
+          <p class="eyebrow eyebrow--light"><span class="spark" aria-hidden="true"></span>Ideas que toman forma</p>
+          <h2>Universos visuales<br />hechos para destacar.</h2>
+          <p class="lead lead--light">Identidad, experiencias digitales y piezas en movimiento, pensadas como parte de una misma historia.</p>
         </header>
-        <div class="grid grid--3">
-          {projects.map((p, i) => (
-            <article class={`project project--${i + 1}`}>
-              <span class="project__tag">{p.tag}</span>
-              <div class="project__body">
-                <h3>{p.title}</h3>
-                <p>{p.note}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+        <figure class="work__feature reveal">
+          <Image src={showcase} alt="Composición visual de identidad Lunaria, diseño digital y aplicaciones de marca" class="work__image" loading="lazy" />
+          <figcaption class="work__caption"><span>Una idea, muchas formas</span><span>Identidad · Digital · Movimiento · 3D</span></figcaption>
+        </figure>
       </div>
     </section>
 
     <section id="nosotros" class="section section--sand">
       <div class="container about">
-        <div class="about__photo">
-          <Image src={retrato} alt="Retrato de la fundadora de Lunaria" width={640} class="about__img" />
+        <div class="about__portraits reveal">
+          <figure class="about__photo about__photo--martu">
+            <Image src={martu} alt="Martu, cofundadora de Lunaria" width={640} class="about__img" />
+            <figcaption class="about__caption">Martu <span>Co fundadora</span></figcaption>
+          </figure>
+          <figure class="about__photo about__photo--nicolas">
+            <Image src={nicolas} alt="Nicolás, cofundador de Lunaria" width={640} class="about__img" />
+            <figcaption class="about__caption">Nicolás <span>Co fundador</span></figcaption>
+          </figure>
+          <p class="about__note">Dos personas, muchas ideas <span aria-hidden="true">✦</span></p>
         </div>
-        <div>
+        <div class="about__copy reveal">
           <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Nosotros</p>
           <h2>{about.title}</h2>
           {about.text.map((t) => <p class="lead">{t}</p>)}
@@ -116,26 +110,110 @@ const icons: Record<string, string> = {
     </section>
 
     <section id="contacto" class="section contact">
-      <span class="blob blob--contact" aria-hidden="true"></span>
-      <div class="container contact__inner">
-        <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Contacto</p>
-        <h2>{contact.title}</h2>
-        <p class="lead">{contact.text}</p>
-        <div class="contact__links">
-          <a class="btn" href={`mailto:${site.email}`}>{site.email}</a>
-          <a class="btn btn--ghost" href={site.whatsapp} target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn btn--ghost" href={site.instagram} target="_blank" rel="noopener">{site.instagramHandle}</a>
+      <div class="container contact__panel reveal">
+        <div class="contact__intro">
+          <p class="eyebrow eyebrow--light"><span class="spark" aria-hidden="true"></span>Hablemos</p>
+          <h2>{contact.title}</h2>
+          <p class="contact__description">{contact.text}</p>
+          <div class="contact__links">
+            <a class="contact__link" href={`mailto:${site.email}`}>
+              <span>Email</span><small>{site.email}</small><b aria-hidden="true">↗</b>
+            </a>
+            <a class="contact__link" href={site.instagram} target="_blank" rel="noopener">
+              <span>{site.instagramHandle}</span><small>Seguinos y conocé nuestro trabajo</small><b aria-hidden="true">↗</b>
+            </a>
+          </div>
         </div>
+        <form class="contact__form" action={`mailto:${site.email}`} method="post" enctype="text/plain">
+          <label>Nombre<input name="nombre" type="text" placeholder="Tu nombre completo" autocomplete="name" required /></label>
+          <label>Email<input name="email" type="email" placeholder="tu@email.com" autocomplete="email" required /></label>
+          <label>Proyecto<select name="proyecto" required>
+            <option value="" disabled selected>¿Qué te gustaría crear?</option>
+            <option>Identidad de marca</option><option>Diseño web & UI/UX</option><option>Motion graphics</option><option>Diseño 3D / producto</option><option>Otro proyecto</option>
+          </select></label>
+          <label>Mensaje<textarea name="mensaje" rows="3" placeholder="Contanos sobre tu proyecto, tiempos y lo que necesitás…" required></textarea></label>
+          <button class="contact__submit" type="submit">Enviar mensaje <span aria-hidden="true">✦</span></button>
+        </form>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <Image src={logo} alt="Lunaria" height={80} class="brand__logo brand__logo--footer" />
-      <p>Diseño que inspira historias.</p>
+      <p class="footer__wordmark">Lunaria</p>
+      <p>Ideas con identidad. Diseño con intención.</p>
+      <nav class="footer__nav" aria-label="Navegación del pie">{nav.map((item) => <a href={item.href}>{item.label}</a>)}</nav>
       <p class="footer__copy">© {year} Lunaria. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <div class="whatsapp-widget">
+    <details class="whatsapp-picker">
+      <summary class="whatsapp-button" aria-label="Elegir un número para escribir por WhatsApp">
+        <span class="whatsapp-button__ring" aria-hidden="true"></span>
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.2a12.5 12.5 0 0 0-10.7 19l-1.4 5.2 5.3-1.4A12.5 12.5 0 1 0 16 3.2Zm0 22.7a10.1 10.1 0 0 1-5.2-1.4l-.4-.2-3.1.8.8-3-.3-.5a10.2 10.2 0 1 1 8.2 4.3Zm5.6-7.6c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.5-1.5 9.4 9.4 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6.3-.5c.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.8.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2a11 11 0 0 0 4.2 4c.6.2 1.1.4 1.4.5.6.2 1.2.2 1.6.1.5-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.1-.2-.2-.5-.3Z"/></svg>
+      </summary>
+      <div class="whatsapp-menu" aria-label="Números de WhatsApp de Lunaria">
+        <p>¿Con quién querés hablar?</p>
+        <a data-whatsapp-phone="5491151818018" href="https://wa.me/5491151818018">Martu <span>↗</span></a>
+        <a data-whatsapp-phone="5493484318457" href="https://wa.me/5493484318457">Nicolás <span>↗</span></a>
+      </div>
+    </details>
+  </div>
 </Base>
+
+<script>
+  const mobileMenu = document.querySelector('.mobile-nav');
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => mobileMenu.removeAttribute('open'));
+  });
+
+  const buenosAiresTime = new Intl.DateTimeFormat('es-AR', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    hour: 'numeric',
+    hourCycle: 'h23',
+  });
+  const hour = Number(buenosAiresTime.format(new Date()));
+  const greeting = hour >= 5 && hour < 12 ? 'Buenos días' : hour >= 12 && hour < 20 ? 'Buenas tardes' : 'Buenas noches';
+  const welcome = `${greeting}! ¡Quisiera consultar por sus servicios!`;
+  document.querySelectorAll<HTMLAnchorElement>('[data-whatsapp-phone]').forEach((link) => {
+    const phone = link.dataset.whatsappPhone;
+    if (phone) link.href = `https://wa.me/${phone}?text=${encodeURIComponent(welcome)}`;
+  });
+
+  const revealItems = document.querySelectorAll('.reveal');
+  const intro = document.querySelector('.intro');
+  const finishIntro = () => {
+    intro?.classList.add('intro--finished');
+    document.body.classList.remove('intro-lock');
+  };
+  if (intro) {
+    document.body.classList.add('intro-lock');
+    window.setTimeout(finishIntro, 1900);
+    intro.addEventListener('click', finishIntro, { once: true });
+  }
+
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('motion-ready');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -36px 0px' });
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const cards = document.querySelectorAll('.card, .pillar');
+    cards.forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const bounds = card.getBoundingClientRect();
+        const pointer = event as PointerEvent;
+        card.style.setProperty('--pointer-x', `${pointer.clientX - bounds.left}px`);
+        card.style.setProperty('--pointer-y', `${pointer.clientY - bounds.top}px`);
+      });
+    });
+  }
+</script>
 
