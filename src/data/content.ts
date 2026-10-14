@@ -71,7 +71,7 @@ export const essence = {
 };
 
 export const about = {
-  title: 'Diseño con intención. Hecho entre personas.',
+  title: 'Creamos en equipo.',
   text: [
     'En Lunaria trabajamos codo a codo con cada proyecto: escuchamos, intercambiamos ideas y cuidamos cada detalle, desde la primera charla hasta el resultado final.',
     'Combinamos estrategia y sensibilidad para crear identidades y experiencias digitales que se sienten propias y ayudan a cada marca a crecer.',
