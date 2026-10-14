@@ -90,21 +90,20 @@ const year = new Date().getFullYear();
 
     <section id="nosotros" class="section section--sand">
       <div class="container about">
-        <div class="about__portraits reveal">
-          <figure class="about__photo about__photo--martu">
-            <Image src={martu} alt="Martu, cofundadora de Lunaria" width={640} class="about__img" />
-            <figcaption class="about__caption">Martu <span>Co fundadora</span></figcaption>
-          </figure>
-          <figure class="about__photo about__photo--nicolas">
-            <Image src={nicolas} alt="Nicolás, cofundador de Lunaria" width={640} class="about__img" />
-            <figcaption class="about__caption">Nicolás <span>Co fundador</span></figcaption>
-          </figure>
-          <p class="about__note">Dos personas, muchas ideas <span aria-hidden="true">✦</span></p>
-        </div>
         <div class="about__copy reveal">
           <p class="eyebrow"><span class="spark" aria-hidden="true"></span>Nosotros</p>
           <h2>{about.title}</h2>
           {about.text.map((t) => <p class="lead">{t}</p>)}
+        </div>
+        <div class="about__portraits reveal" aria-label="Martu y Nicolás, cofundadores de Lunaria">
+          <figure class="about__photo about__photo--martu">
+            <Image src={martu} alt="Martu, cofundadora de Lunaria" width={640} class="about__img" />
+            <figcaption class="about__caption">Martu<span>Co fundadora</span></figcaption>
+          </figure>
+          <figure class="about__photo about__photo--nicolas">
+            <Image src={nicolas} alt="Nicolás, cofundador de Lunaria" width={640} class="about__img" />
+            <figcaption class="about__caption">Nicolás<span>Co fundador</span></figcaption>
+          </figure>
         </div>
       </div>
     </section>

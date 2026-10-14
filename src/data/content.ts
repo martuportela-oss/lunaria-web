@@ -71,11 +71,10 @@ export const essence = {
 };
 
 export const about = {
-  title: 'Dos miradas, un mismo universo.',
+  title: 'Cercanos en el trato. Estratégicos en cada idea.',
   text: [
-    'Somos Martu y Nicolás: socios, amigos y las personas detrás de Lunaria. Nos une la curiosidad, las ganas de crear y esa emoción de ver una idea convertirse en algo real.',
-    'Nos vas a encontrar pensando en equipo, compartiendo referencias y haciendo muchas preguntas. Nos gusta conocer a cada persona detrás de una marca y acompañar su proyecto de cerca, con confianza, sensibilidad y buena energía.',
-    'Porque para nosotros diseñar también es encontrarnos, escucharnos y construir algo juntos.',
+    'Somos Martu y Nicolás, socios y amigos. En Lunaria unimos nuestras miradas para acompañar cada proyecto de forma cercana, desde la primera charla hasta los últimos detalles.',
+    'Nos involucramos, hacemos preguntas y pensamos cada decisión con intención. Así creamos identidades y experiencias digitales que se sienten propias y ayudan a cada marca a crecer.',
   ],
 };
 
