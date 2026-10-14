@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import logo from '../assets/logo.jpeg';
+import headerLogo from '../assets/lunaria-header.png';
 import nicolas from '../assets/nicolas-retrato.png';
 import martu from '../assets/martu-retrato.png';
 import showcase from '../assets/studio-showcase.png';
@@ -19,8 +20,8 @@ const year = new Date().getFullYear();
   </div>
   <header class="header">
     <div class="container header__inner">
-      <a href="#inicio" class="brand logo-crop logo-crop--header" aria-label="Lunaria, inicio">
-        <Image src={logo} alt="Lunaria" width={1600} height={900} loading="eager" class="logo-crop__image" />
+      <a href="#inicio" class="brand logo-header" aria-label="Lunaria, inicio">
+        <Image src={headerLogo} alt="Lunaria" width={358} height={143} loading="eager" class="logo-header__image" />
       </a>
       <nav class="nav" aria-label="Principal">
         {nav.map((item) => <a href={item.href}>{item.label}</a>)}
