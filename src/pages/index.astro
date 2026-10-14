@@ -49,9 +49,25 @@ const year = new Date().getFullYear();
             <a class="btn btn--ghost" href={hero.ctaSecondary.href}>{hero.ctaSecondary.label}</a>
           </div>
         </div>
-        <div class="hero__art">
-          <Image src={showcase} alt="Muestra visual de identidad de marca, diseño web, motion graphics y producto 3D" class="hero__showcase" loading="eager" />
+        <div class="hero__art" aria-label="Muestra visual de los servicios de Lunaria">
+          <div class="hero__gallery">
+            <figure class="hero__frame hero__frame--identity" style={`--panel-image: url("${showcase.src}"); --panel-position: 0%`}>
+              <figcaption><span>01</span> Identidad</figcaption>
+            </figure>
+            <figure class="hero__frame hero__frame--digital" style={`--panel-image: url("${showcase.src}"); --panel-position: 33.333%`}>
+              <figcaption><span>02</span> Digital</figcaption>
+            </figure>
+            <figure class="hero__frame hero__frame--motion" style={`--panel-image: url("${showcase.src}"); --panel-position: 66.666%`}>
+              <figcaption><span>03</span> Motion</figcaption>
+            </figure>
+            <figure class="hero__frame hero__frame--product" style={`--panel-image: url("${showcase.src}"); --panel-position: 100%`}>
+              <figcaption><span>04</span> 3D</figcaption>
+            </figure>
+          </div>
+          <span class="hero__orbit hero__orbit--one" aria-hidden="true"></span>
+          <span class="hero__orbit hero__orbit--two" aria-hidden="true"></span>
           <span class="hero__seal" aria-hidden="true">diseño<br />en movimiento</span>
+          <span class="hero__note" aria-hidden="true">LUNARIA <i>✦</i> ESTUDIO CREATIVO</span>
         </div>
       </div>
     </section>
