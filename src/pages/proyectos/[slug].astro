@@ -38,16 +38,9 @@ const isReal = Boolean(project.real);
         <div class="project-detail__idea">
           <h2>Concepto</h2>
           <p>{project.idea}</p>
-          {project.features && (
-            <div class="project-detail__features">
-              <h3>Características del diseño</h3>
-              <dl>
-                {project.features.map((f) => (
-                  <div><dt>{f.title}</dt><dd>{f.text}</dd></div>
-                ))}
-              </dl>
-            </div>
-          )}
+          {project.features?.map((f) => (
+            <p><span class="project-detail__feature">{f.title}:</span> {f.text}</p>
+          ))}
           {!isReal && <p>Este ejercicio es una exploración visual provisoria. El proyecto, su marca y sus aplicaciones son ficticios y se reemplazarán por trabajos seleccionados por Lunaria.</p>}
         </div>
       </section>
