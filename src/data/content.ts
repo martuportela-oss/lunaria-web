@@ -10,6 +10,10 @@ export const site = {
   email: 'lunaria.estudionm@gmail.com',
   instagram: 'https://www.instagram.com/lunaria.estudiocreativo/',
   instagramHandle: '@lunaria.estudiocreativo',
+  phones: [
+    { name: 'Martu', display: '+54 9 11 5181-8018', tel: '+5491151818018' },
+    { name: 'Nicolás', display: '+54 9 3484 31-8457', tel: '+5493484318457' },
+  ],
   whatsapp: 'https://wa.me/',
 };
 

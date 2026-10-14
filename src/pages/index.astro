@@ -119,6 +119,11 @@ const year = new Date().getFullYear();
             <a class="contact__link" href={`mailto:${site.email}`}>
               <span>Email</span><small>{site.email}</small><b aria-hidden="true">↗</b>
             </a>
+            {site.phones.map((phone) => (
+              <a class="contact__link" href={`tel:${phone.tel}`}>
+                <span>Teléfono · {phone.name}</span><small>{phone.display}</small><b aria-hidden="true">↗</b>
+              </a>
+            ))}
             <a class="contact__link" href={site.instagram} target="_blank" rel="noopener">
               <span>{site.instagramHandle}</span><small>Seguinos y conocé nuestro trabajo</small><b aria-hidden="true">↗</b>
             </a>
