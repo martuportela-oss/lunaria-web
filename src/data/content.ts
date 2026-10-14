@@ -15,7 +15,7 @@ export const site = {
 
 export const nav = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Universos', href: '#universos' },
+  { label: 'Proyectos', href: '#proyectos' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Contacto', href: '#contacto' },
 ];
@@ -53,6 +53,14 @@ export const services = [
     title: 'Packaging & producto',
     text: 'Diseño de envases y piezas aplicadas al producto, de la idea inicial a una presentación memorable.',
   },
+];
+
+// Ejemplos conceptuales provisorios para definir el estilo de la sección.
+export const projects = [
+  { title: 'Brava', category: 'Identidad', description: 'Una identidad enérgica para una marca gastronómica ficticia.', art: 'brava', size: 'wide' },
+  { title: 'Casa calma', category: 'Diseño web · UI/UX', description: 'Una experiencia digital simple para un espacio de bienestar imaginario.', art: 'casa', size: 'narrow' },
+  { title: 'Pausa', category: 'Motion graphics', description: 'Un concepto de movimiento inspirado en bajar el ritmo.', art: 'pausa', size: 'narrow' },
+  { title: 'Forma 01', category: 'Diseño 3D · Producto', description: 'Exploración visual 3D de un objeto cotidiano.', art: 'forma', size: 'wide' },
 ];
 
 export const pillars = [
