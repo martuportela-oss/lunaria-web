@@ -105,6 +105,28 @@ export const services = [
 // Ejemplos conceptuales provisorios para definir el estilo de la sección.
 export const projects = [
   {
+    slug: 'zeus-masa', title: 'Zeus Masa', category: 'Diseño web · UI/UX', description: 'Sitio web para presentar los servicios de seguridad perimetral de Zeus Masa.',
+    art: 'zeus', size: 'wide', type: 'Diseño web · UI/UX', focus: 'Presentación clara de servicios y contacto', tools: 'Arquitectura · Diseño de interfaz · Desarrollo web',
+    intro: 'Diseño y desarrollo de la presencia digital de Zeus Masa, con foco en comunicar su propuesta de seguridad perimetral.',
+    idea: 'Una experiencia web pensada para que potenciales clientes conozcan la empresa, entiendan sus soluciones y puedan ponerse en contacto de forma directa.',
+    features: [
+      { title: 'Información', text: 'Contenido organizado para presentar la propuesta de la empresa con claridad.' },
+      { title: 'Experiencia', text: 'Navegación directa y adaptable a distintos tamaños de pantalla.' },
+    ],
+    gallery: [], real: true, featured: true, websiteUrl: 'https://www.zeusmasa.com.ar/',
+  },
+  {
+    slug: 'vdm-equipamientos', title: 'VDM Insumos', category: 'Diseño web · UI/UX', description: 'Catálogo digital de equipamientos industriales en acero inoxidable.',
+    art: 'vdm', size: 'narrow', type: 'Diseño web · UI/UX', focus: 'Catálogo, búsqueda y navegación por categorías', tools: 'Arquitectura de información · Diseño de interfaz · Desarrollo web',
+    intro: 'Una sección del sitio de VDM Insumos dedicada a su catálogo de equipamientos industriales en acero inoxidable.',
+    idea: 'La página organiza los productos por categorías y ofrece búsqueda para facilitar el recorrido del catálogo. Cada ficha permite consultar por el equipamiento elegido.',
+    features: [
+      { title: 'Categorías', text: 'Mobiliario, línea sanitaria, transporte y soluciones de limpieza.' },
+      { title: 'Catálogo', text: 'Búsqueda y navegación para encontrar productos y realizar consultas.' },
+    ],
+    gallery: [], real: true, websiteUrl: 'https://www.vdminsumos.com/equipamientos.html',
+  },
+  {
     featured: true,
     slug: 'brava', title: 'Brava', category: 'Identidad', description: 'Una identidad enérgica para una marca gastronómica ficticia.',
     art: 'brava', size: 'wide', type: 'Identidad de marca', focus: 'Energía, color y una voz propia', tools: 'Estrategia · Dirección de arte · Sistema visual',
@@ -114,7 +136,7 @@ export const projects = [
   },
   {
     featured: true,
-    slug: 'casa-calma', title: 'Casa calma', category: 'Diseño web · UI/UX', description: 'Una experiencia digital simple para un espacio de bienestar imaginario.',
+    slug: 'casa-calma', title: 'Casa calma', category: 'Concepto UI/UX', description: 'Una experiencia digital simple para un espacio de bienestar imaginario.',
     art: 'casa', size: 'narrow', type: 'Diseño web · UI/UX', focus: 'Claridad, pausa y navegación simple', tools: 'Arquitectura · Interfaz · Prototipo',
     intro: 'Un concepto digital ficticio para un espacio de bienestar que invita a bajar el ritmo desde el primer momento.',
     idea: 'La propuesta imagina una web serena y fácil de recorrer, donde cada decisión ayuda a encontrar una actividad, conocer el espacio o reservar una clase. La composición editorial y los tonos suaves transmiten calma sin perder claridad.',

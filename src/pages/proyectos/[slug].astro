@@ -9,6 +9,7 @@ type Project = (typeof projects)[number] & {
   real?: boolean;
   cover?: ImageMetadata;
   images?: ImageMetadata[];
+  websiteUrl?: string;
   sketchfab?: Sketchfab;
   features?: { title: string; text: string }[];
   realImages?: ImageMetadata[];
@@ -19,8 +20,8 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props as { project: Project };
-const artLabel = `${project.title}, imagen conceptual ficticia de muestra`;
 const isReal = Boolean(project.real);
+const artLabel = `${project.title}, vista ${isReal ? 'ilustrativa' : 'conceptual ficticia'} de muestra`;
 ---
 
 <Base title={`${project.title} · Proyectos | ${site.name}`} description={project.intro}>
@@ -37,7 +38,7 @@ const isReal = Boolean(project.real);
         <h1>{project.title}</h1>
         <p class="project-detail__summary">{project.intro}</p>
         <div class="project-detail__idea">
-          <h2>Concepto</h2>
+          <h2>{isReal ? 'El proyecto' : 'Concepto'}</h2>
           <p>{project.idea}</p>
           {project.features?.map((f) => (
             <p><span class="project-detail__feature">{f.title}:</span> {f.text}</p>
@@ -57,9 +58,18 @@ const isReal = Boolean(project.real);
             {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
             {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
             {project.art === 'forma' && <div class="project-art-forma"><span>FORMA<br />01</span><i></i><small>objeto en estudio</small></div>}
+            {project.art === 'zeus' && <div class="project-art-site project-art-site--zeus"><div class="site-preview__bar"><i></i><i></i><i></i><span>zeusmasa.com.ar</span></div><div class="site-preview__zeus"><small>SEGURIDAD PERIMETRAL</small><b>Protección<br />para lo que<br />más importa.</b><span>Conocé nuestros servicios&nbsp; ↗</span><i></i><em></em></div><div class="site-preview__caption">ZEUS MASA <span>·</span> SEGURIDAD</div></div>}
+            {project.art === 'vdm' && <div class="project-art-site project-art-site--vdm"><div class="site-preview__bar"><i></i><i></i><i></i><span>vdminsumos.com</span></div><div class="site-preview__vdm"><header><b>VDM <span>INSUMOS</span></b><small>PRODUCTOS · EQUIPAMIENTOS · CONTACTO</small></header><div class="site-preview__vdm-copy"><small>CATÁLOGO VDM</small><b>Equipamientos<br />para cada espacio.</b><span>Buscá por producto o categoría&nbsp;⌕</span></div><div class="site-preview__tiles"><i>MOBILIARIO</i><i>LÍNEA SANITARIA</i><i>TRANSPORTE</i></div></div></div>}
           </div>
-          <figcaption>Dirección visual conceptual · Lunaria</figcaption>
+          <figcaption>{isReal ? `Vista ilustrativa · ${project.title}` : 'Dirección visual conceptual · Lunaria'}</figcaption>
         </figure>
+      )}
+
+      {project.websiteUrl && (
+        <a class="project-detail__visit" href={project.websiteUrl} target="_blank" rel="noopener noreferrer">
+          <span><small>SITIO PUBLICADO</small><b>{project.websiteUrl.replace('https://www.', '')}</b></span>
+          <span>Visitar sitio <i aria-hidden="true">↗</i></span>
+        </a>
       )}
 
       {project.sketchfab && (
@@ -94,7 +104,7 @@ const isReal = Boolean(project.real);
             </figure>
           ))}
         </section>
-      ) : (
+      ) : project.gallery.length ? (
         <section class="project-detail__gallery" aria-label="Imágenes conceptuales adicionales">
           {project.gallery.map((label, index) => (
             <figure class={`detail-gallery__item detail-gallery__item--${project.art} detail-gallery__item--${index + 1}`}>
@@ -105,7 +115,7 @@ const isReal = Boolean(project.real);
             </figure>
           ))}
         </section>
-      )}
+      ) : null}
 
       {project.realImages && (
         <section class="project-detail__real" aria-labelledby="auto-real">
@@ -127,7 +137,7 @@ const isReal = Boolean(project.real);
         <div><span>Tipo de proyecto</span><p>{project.type}</p></div>
         <div><span>Enfoque</span><p>{project.focus}</p></div>
         <div><span>{isReal ? 'Áreas de trabajo' : 'Áreas exploradas'}</span><p>{project.tools}</p></div>
-        <div><span>{isReal ? 'Formato' : 'Estado'}</span><p>{isReal ? (project.sketchfab ? 'Renders 3D · Modelo interactivo' : project.realImages ? 'Renders 3D · Fotos del auto real' : 'Renders 3D') : 'Concepto ficticio · Reemplazar por un proyecto seleccionado'}</p></div>
+        <div><span>{isReal ? 'Formato' : 'Estado'}</span><p>{isReal ? (project.websiteUrl ? 'Sitio web publicado' : project.sketchfab ? 'Renders 3D · Modelo interactivo' : project.realImages ? 'Renders 3D · Fotos del auto real' : 'Renders 3D') : 'Concepto ficticio · Reemplazar por un proyecto seleccionado'}</p></div>
       </section>
 
       <footer class="project-detail__footer">
