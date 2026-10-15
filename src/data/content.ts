@@ -114,7 +114,7 @@ export const projects = [
       { title: 'Experiencia', text: 'Navegación directa y adaptable a distintos tamaños de pantalla.' },
     ],
     gallery: [], real: true, featured: true, websiteUrl: 'https://www.zeusmasa.com.ar/',
-    previewImage: '/proyectos/zeus-masa/portada-original.png', videoUrl: '/proyectos/zeus-masa/recorrido.webm',
+    previewImage: '/proyectos/zeus-masa/portada-original.png',
   },
   {
     slug: 'vdm-equipamientos', title: 'VDM Insumos', category: 'Diseño web · UI/UX', description: 'Catálogo digital de equipamientos industriales en acero inoxidable.',
@@ -126,7 +126,7 @@ export const projects = [
       { title: 'Catálogo', text: 'Búsqueda y navegación para encontrar productos y realizar consultas.' },
     ],
     gallery: [], real: true, websiteUrl: 'https://www.vdminsumos.com/equipamientos.html',
-    previewImage: '/proyectos/vdm-equipamientos/portada-original.png', videoUrl: '/proyectos/vdm-equipamientos/recorrido.webm',
+    previewImage: '/proyectos/vdm-equipamientos/portada-original.png',
   },
   {
     featured: true,
@@ -137,7 +137,6 @@ export const projects = [
     gallery: ['Sistema visual', 'Piezas de marca', 'Paleta & tipografía'],
   },
   {
-    featured: true,
     slug: 'casa-calma', title: 'Casa calma', category: 'Concepto UI/UX', description: 'Una experiencia digital simple para un espacio de bienestar imaginario.',
     art: 'casa', size: 'narrow', type: 'Diseño web · UI/UX', focus: 'Claridad, pausa y navegación simple', tools: 'Arquitectura · Interfaz · Prototipo',
     intro: 'Un concepto digital ficticio para un espacio de bienestar que invita a bajar el ritmo desde el primer momento.',

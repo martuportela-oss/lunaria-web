@@ -658,9 +658,9 @@ a:focus-visible {
 .project-art-forma small { position: absolute; right: 12%; bottom: 12%; font-size: .55rem; letter-spacing: .18em; text-transform: uppercase; }
 
 /* Vistas ilustrativas para las fichas web, con la paleta Lunaria. */
-.project--zeus .project__art, .project--vdm .project__art { background: #102637; }
+.project--zeus .project__art, .project--vdm .project__art { background: #102637; aspect-ratio: 16 / 9; min-height: 0; }
 .project--vdm .project__art { background: #f7f7f5; }
-.project--zeus .project__site-image, .project--vdm .project__site-image { object-fit: contain; }
+.project--zeus .project__site-image, .project--vdm .project__site-image { object-fit: cover; object-position: center; }
 .project-art-site { display: flex; flex-direction: column; gap: .65rem; width: 100%; height: 100%; min-height: inherit; overflow: hidden; padding: clamp(.8rem, 2.6vw, 1.8rem); background: #102637; color: var(--crema); }
 .site-preview__bar { display: flex; align-items: center; gap: .28rem; min-height: 1.35rem; color: rgba(248,241,230,.54); }
 .site-preview__bar i { width: .35rem; aspect-ratio: 1; border-radius: 50%; background: var(--cobre); }
@@ -724,6 +724,7 @@ a:focus-visible {
 .project-detail__idea p { max-width: 95ch; margin: 0 0 .55rem; color: rgba(248,241,230,.66); font-size: .8rem; line-height: 1.8; }
 .project-detail__cover { margin: 0; padding: .8rem; border: 1px solid rgba(248,241,230,.16); background: rgba(10,20,29,.2); }
 .project-detail__cover--site-image { overflow: hidden; }
+.project-detail__cover--site-image .project-detail__photo { width: 100%; aspect-ratio: 16 / 9; max-height: none; object-fit: cover; object-position: center; }
 .project-detail__cover .project__art { min-height: clamp(300px, 55vw, 660px); }
 .project-detail__cover .project-art-brava span { font-size: clamp(5rem, 19vw, 16rem); }
 .project-detail__cover .project-art-casa { padding: 5%; }
@@ -748,8 +749,6 @@ a:focus-visible {
 .project-detail__visit span:first-child b { font-size: .8rem; font-weight: 500; }
 .project-detail__visit span:last-child { display: flex; align-items: center; gap: .5rem; color: var(--dorado); font-size: .72rem; }
 .project-detail__visit i { font-style: normal; font-size: 1.1rem; }
-.project-detail__video { padding: clamp(1rem, 3vw, 1.8rem); border: 1px solid rgba(248,241,230,.16); background: rgba(10,20,29,.2); }
-.project-detail__video-player { display: block; width: 100%; max-height: 78vh; aspect-ratio: 16 / 9; background: #0d1923; object-fit: contain; }
 .project-detail__gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; }
 .detail-gallery__item { min-width: 0; margin: 0; padding: .55rem; border: 1px solid rgba(248,241,230,.14); background: rgba(10,20,29,.2); }
 .detail-gallery__visual { position: relative; display: grid; place-items: center; min-height: clamp(125px, 21vw, 260px); overflow: hidden; background: var(--azul); color: var(--crema); }

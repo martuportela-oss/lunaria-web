@@ -11,7 +11,6 @@ type Project = (typeof projects)[number] & {
   images?: ImageMetadata[];
   websiteUrl?: string;
   previewImage?: string;
-  videoUrl?: string;
   sketchfab?: Sketchfab;
   features?: { title: string; text: string }[];
   realImages?: ImageMetadata[];
@@ -68,19 +67,6 @@ const artLabel = `${project.title}, vista ${isReal ? 'ilustrativa' : 'conceptual
           </div>
           <figcaption>{isReal ? `Vista ilustrativa · ${project.title}` : 'Dirección visual conceptual · Lunaria'}</figcaption>
         </figure>
-      )}
-
-      {project.videoUrl && (
-        <section class="project-detail__video" aria-labelledby="recorrido-sitio">
-          <header class="project-detail__model-head">
-            <h2 id="recorrido-sitio">Recorrido del sitio</h2>
-            <p>Vista animada de la página</p>
-          </header>
-          <video class="project-detail__video-player" controls autoplay muted loop playsinline preload="metadata" poster={project.previewImage} aria-label={`Recorrido visual del sitio de ${project.title}`}>
-            <source src={project.videoUrl} type="video/webm" />
-            Tu navegador no puede reproducir este video. Podés visitar el sitio desde el enlace de abajo.
-          </video>
-        </section>
       )}
 
       {project.websiteUrl && (
