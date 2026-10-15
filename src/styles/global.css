@@ -1333,7 +1333,6 @@ a:focus-visible {
 .service-card { position: relative; display: flex; min-width: 0; flex-direction: column; align-items: center; padding: .45rem .65rem 1rem; overflow: visible; border: 1px solid transparent; border-radius: 22px; background: transparent; color: var(--azul); text-align: center; text-decoration: none; transition: transform 260ms ease, border-color 260ms ease, background 260ms ease, box-shadow 260ms ease; }
 .service-card:focus-visible { outline: 3px solid var(--cobre); outline-offset: 4px; }
 .service-card__icon { position: relative; display: grid; width: 84px; height: 84px; flex: none; place-items: center; margin: 0 auto 1.15rem; background: var(--azul); color: var(--dorado); clip-path: polygon(50% 0, 96% 24%, 96% 74%, 50% 100%, 4% 74%, 4% 24%); transition: transform 320ms cubic-bezier(.2,.7,.2,1), background 260ms ease, color 260ms ease; }
-.service-card__icon::after { position: absolute; inset: 7px; border: 1px solid rgba(214,185,129,.32); clip-path: inherit; content: ''; }
 .service-card__icon svg { position: relative; z-index: 1; width: 43px; height: 43px; }
 .service-card--web .service-card__icon { clip-path: polygon(12% 0, 88% 0, 88% 64%, 50% 100%, 12% 64%); }
 .service-card--social .service-card__icon { border-radius: 24px; clip-path: none; }
@@ -1361,7 +1360,6 @@ a:focus-visible {
   .service-card { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; column-gap: 1rem; padding: .9rem .75rem; text-align: left; }
   .service-card__icon { grid-column: 1; grid-row: 1 / span 3; width: 60px; height: 60px; margin: 0; }
   .service-card__icon svg { width: 32px; height: 32px; }
-  .service-card__icon::after { inset: 5px; }
   .service-card__title { min-height: 0; place-items: center start; font-size: .88rem; }
   .service-card__includes { grid-column: 2; min-height: 0; gap: .16rem; margin: .35rem 0 .6rem; }
   .service-card__includes li { font-size: .64rem; }

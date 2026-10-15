@@ -40,7 +40,7 @@ export const hero = {
 
 export const services = [
   {
-    title: 'Identidad de marca',
+    title: 'Branding',
     text: 'Logo, paleta, tipografía y manual de marca para que tu proyecto tenga una voz visual propia y coherente.',
     includes: ['Estrategia de marca', 'Diseño de logotipo', 'Sistema visual'],
     cta: 'Listos para dar identidad',
@@ -80,6 +80,27 @@ export const services = [
     includes: ['Diseño de envase', 'Etiquetas y variantes', 'Visualización de producto'],
     cta: 'Listos para presentar',
     visual: 'pack',
+  },
+  {
+    title: 'Estrategia de marketing',
+    text: 'Definimos el rumbo y las acciones para conectar tu marca con las personas indicadas y alcanzar tus objetivos.',
+    includes: ['Diagnóstico de marca', 'Estrategia de comunicación', 'Plan de acción'],
+    cta: 'Listos para planificar',
+    visual: 'marketing',
+  },
+  {
+    title: 'Vía pública',
+    text: 'Diseñamos piezas de alto impacto para que tu marca se destaque y se entienda en el espacio urbano.',
+    includes: ['Cartelería y marquesinas', 'Gráfica vehicular', 'Campañas exteriores'],
+    cta: 'Listos para destacar',
+    visual: 'outdoor',
+  },
+  {
+    title: 'Servicios de impresión',
+    text: 'Preparamos y coordinamos piezas impresas con atención al formato, los materiales y cada terminación.',
+    includes: ['Papelería y folletería', 'Preparación de originales', 'Asesoría de materiales'],
+    cta: 'Listos para imprimir',
+    visual: 'print',
   },
 ];
 

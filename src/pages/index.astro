@@ -85,6 +85,9 @@ const year = new Date().getFullYear();
                   {s.visual === 'motion' && <><path d="M8 17.5h32v22H8z" /><path d="M8 24h32M14 17.5l4.5 6.5m3.5-6.5 4.5 6.5m3.5-6.5 4.5 6.5" /><path d="m16 34 5-6 4 4 6-8 3 4" /><path d="m31 24 1-1.3 1 1.3" /></>}
                   {s.visual === '3d' && <><path d="m24 6.5 15 8.7v17.5L24 41.5 9 32.7V15.2L24 6.5Z" /><path d="m9.5 15.5 14.5 8.7 14.5-8.7M24 24.2v16.5m-7-20.6 14 8.2" /><path d="m32 11.2 3 1.8" /></>}
                   {s.visual === 'pack' && <><path d="m24 13 15 8.5v17L24 46l-15-7.5v-17L24 13Z" /><path d="m9.5 21.5 14.5 8 14.5-8M24 29.5V46" /><path d="m9 22-2-11 12-4 5 6m0 0 5-6 12 4-2 11" /><path d="M14 31v6l7 3.5v-6L14 31Z" /><path d="m26 34 9-5" /></>}
+                  {s.visual === 'marketing' && <><circle cx="24" cy="24" r="15" /><circle cx="24" cy="24" r="8" /><circle cx="24" cy="24" r="2" fill="currentColor" /><path d="m25.5 22.5 12-12M31 10h7v7" /></>}
+                  {s.visual === 'outdoor' && <><path d="M9 8h30v22H9z" /><path d="M15 30v10m18-10v10M11 40h26" /><path d="m15 24 6-7 5 4 4-6 4 9" /><circle cx="33" cy="13" r="1.4" /></>}
+                  {s.visual === 'print' && <><path d="M15 17V8h18v9M14 34H9V20a3 3 0 0 1 3-3h24a3 3 0 0 1 3 3v14h-5" /><path d="M15 29h18v11H15zM32 22h2" /><path d="M19 33h10m-10 4h7" /></>}
                 </svg>
               </span>
               <h3 class="service-card__title">{s.title}</h3>
@@ -178,7 +181,7 @@ const year = new Date().getFullYear();
           <label>Teléfono<input name="telefono" type="tel" placeholder="Tu teléfono de contacto" autocomplete="tel" required /></label>
           <label>Proyecto<select name="proyecto" required>
             <option value="" disabled selected>¿Qué te gustaría crear?</option>
-            <option>Identidad de marca</option><option>Diseño web & UI/UX</option><option>Contenido para redes</option><option>Motion graphics</option><option>Diseño 3D</option><option>Packaging & producto</option><option>Otro proyecto</option>
+            <option>Branding</option><option>Diseño web & UI/UX</option><option>Contenido para redes</option><option>Motion graphics</option><option>Diseño 3D</option><option>Packaging & producto</option><option>Estrategia de marketing</option><option>Vía pública</option><option>Servicios de impresión</option><option>Otro proyecto</option>
           </select></label>
           <label>Mensaje<textarea name="mensaje" rows="3" placeholder="Contanos sobre tu proyecto, tiempos y lo que necesitás…" required></textarea></label>
           <button class="contact__submit" type="submit">Enviar mensaje <span aria-hidden="true">✦</span></button>
