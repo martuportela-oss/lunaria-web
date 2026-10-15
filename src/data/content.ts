@@ -75,13 +75,6 @@ export const services = [
     visual: '3d',
   },
   {
-    title: 'Packaging & producto',
-    text: 'Diseño de envases y piezas aplicadas al producto, de la idea inicial a una presentación memorable.',
-    includes: ['Diseño de envase', 'Etiquetas y variantes', 'Visualización de producto'],
-    cta: 'Listos para presentar',
-    visual: 'pack',
-  },
-  {
     title: 'Estrategia de marketing',
     text: 'Definimos el rumbo y las acciones para conectar tu marca con las personas indicadas y alcanzar tus objetivos.',
     includes: ['Diagnóstico de marca', 'Estrategia de comunicación', 'Plan de acción'],
