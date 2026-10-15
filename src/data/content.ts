@@ -114,6 +114,7 @@ export const projects = [
     ],
     gallery: ['Vista lateral', 'Detalle superior'],
     real: true,
+    featured: true,
     thumb: islaBoschPortada,
     cover: islaBosch1,
     images: [islaBosch2, islaBosch3],
