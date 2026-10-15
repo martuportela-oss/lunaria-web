@@ -1297,7 +1297,7 @@ a:focus-visible {
 
 
 /* ---------- Proyectos reales: renders y modelo 3D ---------- */
-.project__art--photo { background: #cfcfcf; }
+.project .project__art.project__art--photo { background: #cfcfcf; }
 .project__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 700ms cubic-bezier(.2,.7,.2,1); }
 .project:hover .project__photo { transform: scale(1.035); }
 
@@ -1323,3 +1323,4 @@ a:focus-visible {
 }
 
 .project-detail__feature { color: var(--crema); }
+@media (max-width: 639px) { .project__photo { object-fit: contain; } }

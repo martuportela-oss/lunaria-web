@@ -4,6 +4,7 @@
 import islaBosch1 from '../assets/proyectos/isla-bosch/render-1.jpg';
 import islaBosch2 from '../assets/proyectos/isla-bosch/render-2.jpg';
 import islaBosch3 from '../assets/proyectos/isla-bosch/render-3.jpg';
+import islaBoschPortada from '../assets/proyectos/isla-bosch/portada.jpg';
 
 export const site = {
   name: 'Lunaria',
@@ -107,6 +108,7 @@ export const projects = [
     ],
     gallery: ['Vista lateral', 'Detalle superior'],
     real: true,
+    thumb: islaBoschPortada,
     cover: islaBosch1,
     images: [islaBosch2, islaBosch3],
     sketchfab: {
