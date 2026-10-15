@@ -110,13 +110,13 @@ const year = new Date().getFullYear();
           <button class="projects__filter" type="button" data-project-filter="Motion" aria-pressed="false">Motion</button>
           <button class="projects__filter" type="button" data-project-filter="3D" aria-pressed="false">3D</button>
         </div>
-        <p class="projects__hint reveal" data-projects-hint>Proyecto destacado · Elegí una categoría para ver más trabajos.</p>
+        <p class="projects__hint reveal" data-projects-hint>Proyectos principales · Elegí una categoría para ver más trabajos.</p>
         <div class="projects__grid" data-projects-mode="todos">
           {projects.map((project, i) => (
             <article class={`project project--${project.art} project--${project.size}${'featured' in project ? ' project--featured' : ''} reveal`} data-project-category={project.category} data-project-featured={'featured' in project ? 'true' : undefined} hidden={!('featured' in project)} style={`--reveal-delay: ${i * 80}ms`}>
               <a class="project__link" href={`/proyectos/${project.slug}/`} aria-label={`Ver más sobre ${'real' in project ? 'el proyecto' : 'el concepto'} ${project.title}`}>
                 <div class={`project__art${'cover' in project ? ' project__art--photo' : ''}`} aria-hidden="true">
-                  {'cover' in project && <Image src={'thumb' in project ? project.thumb : project.cover} alt="" widths={[480, 800, 1200, 1600, 2000]} sizes="(max-width: 1200px) 100vw, 1160px" class="project__photo" />}
+                  {'cover' in project && <Image src={'thumb' in project ? project.thumb : project.cover} alt="" widths={[480, 800, 1200, 1600]} sizes="(max-width: 899px) 100vw, 680px" class="project__photo" />}
                   {!('cover' in project) && project.art === 'brava' && <div class="project-art-brava"><span>BRAVA</span><small>rico · simple · de acá</small><i>!</i></div>}
                   {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
                   {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
@@ -222,7 +222,7 @@ const year = new Date().getFullYear();
   const projectCards = document.querySelectorAll<HTMLElement>('[data-project-category]');
   const projectsGrid = document.querySelector<HTMLElement>('[data-projects-mode]');
   const projectsHint = document.querySelector<HTMLElement>('[data-projects-hint]');
-  // "Todos" muestra solo el proyecto destacado; cada categoría muestra sus proyectos.
+  // "Todos" muestra los proyectos principales (featured); cada categoría muestra todos los suyos.
   const showProjects = (category: string) => {
     projectsGrid?.setAttribute('data-projects-mode', category === 'Todos' ? 'todos' : 'categoria');
     if (projectsHint) projectsHint.hidden = category !== 'Todos';

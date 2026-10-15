@@ -5,6 +5,11 @@ import islaBosch1 from '../assets/proyectos/isla-bosch/render-1.jpg';
 import islaBosch2 from '../assets/proyectos/isla-bosch/render-2.jpg';
 import islaBosch3 from '../assets/proyectos/isla-bosch/render-3.jpg';
 import islaBoschPortada from '../assets/proyectos/isla-bosch/portada.jpg';
+import nissan1 from '../assets/proyectos/diseno-nissan-tc2000/nissan-kicks-1.jpg';
+import nissan2 from '../assets/proyectos/diseno-nissan-tc2000/nissan-kicks-2.jpg';
+import nissan3 from '../assets/proyectos/diseno-nissan-tc2000/nissan-kicks-3.jpg';
+import nissan4 from '../assets/proyectos/diseno-nissan-tc2000/nissan-kicks-4.jpg';
+import nissan5 from '../assets/proyectos/diseno-nissan-tc2000/nissan-kicks-5.jpg';
 
 export const site = {
   name: 'Lunaria',
@@ -81,6 +86,7 @@ export const services = [
 // Ejemplos conceptuales provisorios para definir el estilo de la sección.
 export const projects = [
   {
+    featured: true,
     slug: 'brava', title: 'Brava', category: 'Identidad', description: 'Una identidad enérgica para una marca gastronómica ficticia.',
     art: 'brava', size: 'wide', type: 'Identidad de marca', focus: 'Energía, color y una voz propia', tools: 'Estrategia · Dirección de arte · Sistema visual',
     intro: 'Una marca gastronómica inventada para explorar cómo una identidad puede sentirse cercana, intensa y fácil de reconocer.',
@@ -88,6 +94,7 @@ export const projects = [
     gallery: ['Sistema visual', 'Piezas de marca', 'Paleta & tipografía'],
   },
   {
+    featured: true,
     slug: 'casa-calma', title: 'Casa calma', category: 'Diseño web · UI/UX', description: 'Una experiencia digital simple para un espacio de bienestar imaginario.',
     art: 'casa', size: 'narrow', type: 'Diseño web · UI/UX', focus: 'Claridad, pausa y navegación simple', tools: 'Arquitectura · Interfaz · Prototipo',
     intro: 'Un concepto digital ficticio para un espacio de bienestar que invita a bajar el ritmo desde el primer momento.',
@@ -95,6 +102,7 @@ export const projects = [
     gallery: ['Inicio & navegación', 'Agenda de actividades', 'Experiencia móvil'],
   },
   {
+    featured: true,
     slug: 'pausa', title: 'Pausa', category: 'Motion graphics', description: 'Un concepto de movimiento inspirado en bajar el ritmo.',
     art: 'pausa', size: 'narrow', type: 'Motion graphics', focus: 'Ritmo, atmósfera y movimiento', tools: 'Dirección de arte · Animación · Sonido',
     intro: 'Una pieza de movimiento conceptual sobre la importancia de hacer espacio y volver a lo esencial.',
@@ -125,6 +133,16 @@ export const projects = [
       author: 'Nicolás Martín',
       authorUrl: 'https://sketchfab.com/martin.nicolas',
     },
+  },
+  {
+    slug: 'diseno-nissan-tc2000', title: 'Nissan Kicks TC2000', category: 'Diseño 3D · Automotor', description: 'Diseño y visualización 3D de un Nissan Kicks de competición para el TC2000.',
+    art: 'forma', size: 'narrow', type: 'Diseño 3D · Automotor', focus: 'Diseño de auto de competición y gráfica de marca', tools: 'Modelado · Materiales · Iluminación · Render',
+    intro: 'Diseño y visualización 3D de un Nissan Kicks de competición para el TC2000.',
+    idea: 'Texto provisorio: reemplazar por la descripción del proyecto.',
+    gallery: ['Tres cuartos trasero', 'Vista trasera', 'Frente', 'Detalle trasero'],
+    real: true,
+    cover: nissan3,
+    images: [nissan1, nissan2, nissan4, nissan5],
   },
 ];
 
