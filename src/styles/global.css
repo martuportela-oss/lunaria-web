@@ -1329,7 +1329,7 @@ a:focus-visible {
 .services__head { max-width: none; margin-bottom: clamp(2.8rem, 5vw, 4.2rem); }
 .services__head h2 { margin: 0; color: var(--azul); font-size: clamp(2rem, 3.4vw, 2.8rem); letter-spacing: .015em; text-transform: uppercase; }
 .services__head .lead { max-width: 48ch; margin: .8rem 0 0; }
-.services__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; gap: clamp(2.6rem, 4.5vw, 4rem) clamp(.5rem, 1.8vw, 1.5rem); }
+.services__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; gap: clamp(2.6rem, 4.5vw, 4rem) clamp(.5rem, 1.8vw, 1.5rem); }
 .service-card { position: relative; display: flex; min-width: 0; flex-direction: column; align-items: center; padding: .45rem .65rem 1rem; overflow: visible; border: 1px solid transparent; border-radius: 22px; background: transparent; color: var(--azul); text-align: center; text-decoration: none; transition: transform 260ms ease, border-color 260ms ease, background 260ms ease, box-shadow 260ms ease; }
 .service-card:focus-visible { outline: 3px solid var(--cobre); outline-offset: 4px; }
 .service-card__icon { position: relative; display: grid; width: 84px; height: 84px; flex: none; place-items: center; margin: 0 auto 1.15rem; background: var(--azul); color: var(--dorado); clip-path: polygon(50% 0, 96% 24%, 96% 74%, 50% 100%, 4% 74%, 4% 24%); transition: transform 320ms cubic-bezier(.2,.7,.2,1), background 260ms ease, color 260ms ease; }

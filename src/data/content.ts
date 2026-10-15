@@ -84,7 +84,7 @@ export const services = [
   {
     title: 'Vía pública',
     text: 'Diseñamos piezas de alto impacto para que tu marca se destaque y se entienda en el espacio urbano.',
-    includes: ['Cartelería y marquesinas', 'Gráfica vehicular', 'Campañas exteriores'],
+    includes: ['Pantallas y gran formato', 'Cartelería y marquesinas', 'Gráfica vehicular y campañas'],
     cta: 'Listos para destacar',
     visual: 'outdoor',
   },
