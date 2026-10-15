@@ -1308,7 +1308,7 @@ a:focus-visible {
 .project-detail__model-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem 1.5rem; margin-bottom: 1rem; }
 .project-detail__model-head h2 { margin: 0; color: var(--crema); font-size: 1.25rem; font-weight: 500; }
 .project-detail__model-head p { margin: 0; color: var(--celeste); font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; }
-.project-detail__model-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid rgba(214,185,129,.35); background: #0d1923; }
+.project-detail__model-frame { position: relative; aspect-ratio: 4 / 3; max-height: 85vh; width: 100%; overflow: hidden; border: 1px solid rgba(214,185,129,.35); background: #0d1923; }
 .project-detail__model-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .project-detail__model-credit { margin: .7rem .1rem 0; color: rgba(248,241,230,.5); font-size: .6rem; letter-spacing: .06em; }
 .project-detail__model-credit a { color: var(--dorado); text-decoration: none; }
