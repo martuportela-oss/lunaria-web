@@ -660,7 +660,7 @@ a:focus-visible {
 /* Vistas ilustrativas para las fichas web, con la paleta Lunaria. */
 .project--zeus .project__art, .project--vdm .project__art { background: #102637; aspect-ratio: 16 / 9; min-height: 0; }
 .project--vdm .project__art { background: #f7f7f5; }
-.project--zeus .project__site-image, .project--vdm .project__site-image { object-fit: cover; object-position: center; }
+.project--zeus .project__site-image, .project--vdm .project__site-image { object-fit: contain; object-position: center; }
 .project-art-site { display: flex; flex-direction: column; gap: .65rem; width: 100%; height: 100%; min-height: inherit; overflow: hidden; padding: clamp(.8rem, 2.6vw, 1.8rem); background: #102637; color: var(--crema); }
 .site-preview__bar { display: flex; align-items: center; gap: .28rem; min-height: 1.35rem; color: rgba(248,241,230,.54); }
 .site-preview__bar i { width: .35rem; aspect-ratio: 1; border-radius: 50%; background: var(--cobre); }
@@ -724,7 +724,9 @@ a:focus-visible {
 .project-detail__idea p { max-width: 95ch; margin: 0 0 .55rem; color: rgba(248,241,230,.66); font-size: .8rem; line-height: 1.8; }
 .project-detail__cover { margin: 0; padding: .8rem; border: 1px solid rgba(248,241,230,.16); background: rgba(10,20,29,.2); }
 .project-detail__cover--site-image { overflow: hidden; }
-.project-detail__cover--site-image .project-detail__photo { width: 100%; aspect-ratio: 16 / 9; max-height: none; object-fit: cover; object-position: center; }
+.project-detail__cover--site-image .project-detail__photo { width: 100%; aspect-ratio: 16 / 9; max-height: none; object-fit: contain; object-position: center; }
+.project-detail__cover--zeus { background: #102637; }
+.project-detail__cover--vdm { background: #f7f7f5; }
 .project-detail__cover .project__art { min-height: clamp(300px, 55vw, 660px); }
 .project-detail__cover .project-art-brava span { font-size: clamp(5rem, 19vw, 16rem); }
 .project-detail__cover .project-art-casa { padding: 5%; }

@@ -49,7 +49,7 @@ const artLabel = `${project.title}, vista ${isReal ? 'ilustrativa' : 'conceptual
       </section>
 
       {project.previewImage ? (
-        <figure class="project-detail__cover project-detail__cover--site-image">
+        <figure class={`project-detail__cover project-detail__cover--site-image project-detail__cover--${project.art}`}>
           <img src={project.previewImage} alt={`Captura de la portada del sitio de ${project.title}`} class="project-detail__photo" fetchpriority="high" />
           <figcaption>Portada del sitio · {project.title}</figcaption>
         </figure>
