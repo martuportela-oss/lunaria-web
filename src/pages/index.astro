@@ -38,6 +38,11 @@ const year = new Date().getFullYear();
 
   <main id="inicio">
     <section class="hero">
+      <!-- Video de fondo: "Mesmerizing Abstract Fluid Art Pattern in Motion", Nicola Narracci / Pexels. -->
+      <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster={showcase.src} aria-hidden="true" tabindex="-1">
+        <source src="/lunaria-header-reel.mp4" type="video/mp4" />
+      </video>
+      <div class="hero__veil" aria-hidden="true"></div>
       <div class="container hero__inner">
         <div class="hero__copy">
           <p class="eyebrow"><span class="spark" aria-hidden="true"></span>{hero.eyebrow}</p>
@@ -47,19 +52,6 @@ const year = new Date().getFullYear();
             <a class="btn" href={hero.cta.href}>{hero.cta.label}</a>
             <a class="btn btn--ghost" href={hero.ctaSecondary.href}>{hero.ctaSecondary.label}</a>
           </div>
-        </div>
-        <div class="hero__art" aria-label="Showreel de identidad, diseño digital, motion y producto 3D de Lunaria">
-          <figure class="hero-reel">
-            <div class="hero-reel__scene hero-reel__scene--brand" style={`--scene-image: url("${showcase.src}"); --scene-x: 0%; --scene-y: 42%`} aria-hidden="true"></div>
-            <div class="hero-reel__scene hero-reel__scene--digital" style={`--scene-image: url("${showcase.src}"); --scene-x: 33.333%; --scene-y: 38%`} aria-hidden="true"></div>
-            <div class="hero-reel__scene hero-reel__scene--motion" style={`--scene-image: url("${showcase.src}"); --scene-x: 66.666%; --scene-y: 44%`} aria-hidden="true"></div>
-            <div class="hero-reel__scene hero-reel__scene--product" style={`--scene-image: url("${showcase.src}"); --scene-x: 100%; --scene-y: 40%`} aria-hidden="true"></div>
-            <figcaption class="hero-reel__caption">
-              <span>SHOWREEL · LUNARIA</span>
-              <b>Ideas que toman forma</b>
-            </figcaption>
-            <span class="hero-reel__progress" aria-hidden="true"></span>
-          </figure>
         </div>
       </div>
     </section>
