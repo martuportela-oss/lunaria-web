@@ -315,7 +315,7 @@ a:focus-visible {
   isolation: isolate;
 }
 
-.hero__visual {
+.hero-reel {
   position: absolute;
   inset: 4% 1% 5% 2%;
   overflow: hidden;
@@ -325,51 +325,57 @@ a:focus-visible {
   background: #e9ddca;
   box-shadow: 0 28px 60px rgba(5,16,25,.28), 0 0 0 9px rgba(248,241,230,.08);
   transform: rotate(1deg);
-  animation: visual-arrive 900ms 240ms both cubic-bezier(.18,.74,.22,1), visual-float 8s 1.2s ease-in-out infinite;
+  animation: reel-arrive 900ms 240ms both cubic-bezier(.18,.74,.22,1), reel-float 8s 1.2s ease-in-out infinite;
   transition: transform .55s cubic-bezier(.2,.7,.2,1), box-shadow .55s ease;
 }
 
-.hero__visual::before {
+.hero-reel::before {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   inset: 0;
-  background: linear-gradient(180deg, rgba(16,35,50,.02) 52%, rgba(16,35,50,.7));
+  background: linear-gradient(180deg, rgba(16,35,50,.02) 48%, rgba(16,35,50,.68));
   content: '';
   pointer-events: none;
 }
 
-.hero__visual-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.015);
-  transition: transform 900ms cubic-bezier(.2,.7,.2,1), filter 700ms ease;
+.hero-reel__scene {
+  position: absolute;
+  inset: 0;
+  background-color: var(--azul);
+  background-image: var(--scene-image);
+  background-repeat: no-repeat;
+  background-size: 400% 400%;
+  background-position: var(--scene-x) var(--scene-y);
+  opacity: 0;
+  animation: reel-scene 24s infinite both, reel-drift 7s ease-in-out infinite alternate;
+  will-change: opacity, background-position;
 }
 
-.hero__visual:hover {
+.hero-reel__scene--brand { animation-delay: 0s, 0s; }
+.hero-reel__scene--digital { animation-delay: -18s, -1.4s; }
+.hero-reel__scene--motion { animation-delay: -12s, -2.8s; }
+.hero-reel__scene--product { animation-delay: -6s, -4.2s; }
+
+.hero-reel:hover {
   box-shadow: 0 34px 70px rgba(5,16,25,.34), 0 0 0 9px rgba(248,241,230,.11);
   transform: rotate(0) translateY(-5px);
 }
 
-.hero__visual:hover .hero__visual-image { transform: scale(1.06); filter: saturate(1.06); }
-
-.hero__visual-caption {
+.hero-reel__caption {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   right: 0;
   bottom: 0;
   left: 0;
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
   gap: .75rem;
   padding: 1.15rem 1.35rem;
   color: var(--crema);
 }
 
-.hero__visual-caption span {
+.hero-reel__caption span {
   color: var(--dorado);
   font-size: .64rem;
   font-weight: 700;
@@ -377,7 +383,7 @@ a:focus-visible {
   white-space: nowrap;
 }
 
-.hero__visual-caption b {
+.hero-reel__caption b {
   font-size: clamp(.62rem, 1vw, .78rem);
   font-weight: 600;
   letter-spacing: .09em;
@@ -385,19 +391,32 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
-.hero__visual-caption small {
+.hero-reel__progress {
   position: absolute;
-  top: -2.2rem;
-  right: 1.35rem;
-  color: rgba(248,241,230,.78);
-  font-size: .7rem;
-  letter-spacing: .04em;
+  z-index: 4;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  overflow: hidden;
+  background: rgba(248,241,230,.25);
 }
 
-/* A quiet highlight adds movement without fragmenting the hero into narrow panels. */
-.hero__visual::after {
+.hero-reel__progress::after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--dorado);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: reel-progress 24s linear infinite;
+}
+
+/* A soft glint runs across each scene like a studio light. */
+.hero-reel::after {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: -30%;
   bottom: -30%;
   left: -65%;
@@ -406,20 +425,36 @@ a:focus-visible {
   content: '';
   pointer-events: none;
   transform: skewX(-18deg);
-  animation: visual-sheen 7s 1.5s ease-in-out infinite;
+  animation: reel-sheen 9s 1.5s ease-in-out infinite;
 }
 
-@keyframes visual-arrive {
+@keyframes reel-arrive {
   from { opacity: 0; transform: translate(18px, 22px) rotate(3deg) scale(.96); }
   to { opacity: 1; transform: rotate(1deg) scale(1); }
 }
 
-@keyframes visual-float {
+@keyframes reel-float {
   0%, 100% { translate: 0 0; }
   50% { translate: 0 -8px; }
 }
 
-@keyframes visual-sheen {
+@keyframes reel-scene {
+  0% { opacity: 0; }
+  3% { opacity: 1; }
+  22% { opacity: 1; }
+  25%, 100% { opacity: 0; }
+}
+
+@keyframes reel-drift {
+  from { background-position: var(--scene-x) calc(var(--scene-y) - 7%); }
+  to { background-position: var(--scene-x) calc(var(--scene-y) + 7%); }
+}
+
+@keyframes reel-progress {
+  to { transform: scaleX(1); }
+}
+
+@keyframes reel-sheen {
   0%, 62%, 100% { left: -65%; opacity: 0; }
   68% { opacity: 1; }
   88% { left: 135%; opacity: .8; }
@@ -439,18 +474,17 @@ a:focus-visible {
 /* Keep the image easy to scan on mobile and let its caption wrap naturally. */
 @media (max-width: 639px) {
   .hero__art { width: min(100%, 510px); height: clamp(260px, 70vw, 370px); }
-  .hero__visual { inset: 2% 1% 4%; border-radius: 23px; }
-  .hero__visual-caption { align-items: flex-start; flex-direction: column; gap: .35rem; padding: .85rem 1rem; }
-  .hero__visual-caption b { text-align: left; line-height: 1.45; }
-  .hero__visual-caption small { display: none; }
+  .hero-reel { inset: 2% 1% 4%; border-radius: 23px; }
+  .hero-reel__caption { align-items: flex-start; flex-direction: column; gap: .35rem; padding: .85rem 1rem; }
+  .hero-reel__caption b { text-align: left; line-height: 1.45; }
 }
 
 @media (max-width: 520px) {
   .hero__art { height: clamp(250px, 76vw, 330px); }
-  .hero__visual { border-radius: 19px; }
-  .hero__visual-caption { padding: .7rem .8rem; }
-  .hero__visual-caption span { font-size: .56rem; }
-  .hero__visual-caption b { font-size: .58rem; }
+  .hero-reel { border-radius: 19px; }
+  .hero-reel__caption { padding: .7rem .8rem; }
+  .hero-reel__caption span { font-size: .56rem; }
+  .hero-reel__caption b { font-size: .58rem; }
 }
 
 /* ---------- Secciones ---------- */
@@ -1357,8 +1391,9 @@ a:focus-visible {
     scroll-behavior: auto !important;
   }
   .logo-crop--intro { animation: none !important; }
-  .hero__visual { animation: none !important; }
-  .hero__visual::after { animation: none !important; }
+  .hero-reel, .hero-reel__scene, .hero-reel__progress::after { animation: none !important; }
+  .hero-reel__scene--brand { opacity: 1; }
+  .hero-reel::after { animation: none !important; }
 }
 
 @media (max-width: 520px) {
