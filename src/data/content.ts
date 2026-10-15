@@ -126,7 +126,7 @@ export const projects = [
       { title: 'Catálogo', text: 'Búsqueda y navegación para encontrar productos y realizar consultas.' },
     ],
     gallery: [], real: true, websiteUrl: 'https://www.vdminsumos.com/equipamientos.html',
-    previewImage: '/proyectos/vdm-equipamientos/portada-16x9.png?v=outpaint-1',
+    previewImage: '/proyectos/vdm-equipamientos/portada-16x9.png?v=outpaint-2',
   },
   {
     featured: true,
