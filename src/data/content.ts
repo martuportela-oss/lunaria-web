@@ -114,6 +114,11 @@ export const projects = [
       { title: 'Experiencia', text: 'Navegación directa y adaptable a distintos tamaños de pantalla.' },
     ],
     gallery: [], real: true, featured: true, websiteUrl: 'https://www.zeusmasa.com.ar/',
+    previewImage: '/proyectos/zeus-masa/portada.svg',
+    visuals: [
+      { src: '/proyectos/zeus-masa/instalacion.svg', title: 'Instalación perimetral' },
+      { src: '/proyectos/zeus-masa/sistemas.svg', title: 'Cercos, alarmas y cámaras' },
+    ],
   },
   {
     slug: 'vdm-equipamientos', title: 'VDM Insumos', category: 'Diseño web · UI/UX', description: 'Catálogo digital de equipamientos industriales en acero inoxidable.',
@@ -125,6 +130,11 @@ export const projects = [
       { title: 'Catálogo', text: 'Búsqueda y navegación para encontrar productos y realizar consultas.' },
     ],
     gallery: [], real: true, websiteUrl: 'https://www.vdminsumos.com/equipamientos.html',
+    previewImage: '/proyectos/vdm-equipamientos/portada.svg',
+    visuals: [
+      { src: '/proyectos/vdm-equipamientos/productos.svg', title: 'Mobiliario industrial' },
+      { src: '/proyectos/vdm-equipamientos/catalogo.svg', title: 'Categorías del catálogo' },
+    ],
   },
   {
     featured: true,

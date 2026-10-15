@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img">
+ <defs><linearGradient id="s" x2="0" y2="1"><stop stop-color="#9eb5b7"/><stop offset="1" stop-color="#e7ded0"/></linearGradient><linearGradient id="n" x2="1" y2="1"><stop stop-color="#19384d"/><stop offset="1" stop-color="#0d2231"/></linearGradient></defs>
+ <rect width="1200" height="760" fill="url(#s)"/><circle cx="930" cy="150" r="95" fill="#e8c986" opacity=".6"/>
+ <path d="M0 410 250 270l260 110 260-180 430 175v385H0Z" fill="#8a9d9a"/><path d="M300 319 573 180l280 127v307H300Z" fill="#f4eee3"/><path d="M355 338 572 226l218 99v289H355Z" fill="url(#n)"/>
+ <path d="M355 338 572 226l218 99M355 405 572 292l218 99m-435 74 217-112 218 98m-436 76 218-112 218 98" fill="none" stroke="#d6b981" stroke-width="7"/>
+ <path d="M355 327V617m82-332v290m82-332v290m82-331v290m82-252v290m82-252v290" stroke="#e9dfcf" stroke-width="5" opacity=".7"/>
+ <rect x="54" y="50" width="480" height="112" rx="18" fill="#102637"/><text x="90" y="100" fill="#d6b981" font-family="Arial,sans-serif" font-size="18" letter-spacing="4">INSTALACIÓN PERIMETRAL</text><text x="90" y="137" fill="#f8f1e6" font-family="Arial,sans-serif" font-size="23">Diseñada para cada propiedad</text>
+ <text x="56" y="714" fill="#102637" font-family="Arial,sans-serif" font-size="18" letter-spacing="4">ILUSTRACIÓN · CERCOS ELÉCTRICOS Y SEÑALIZACIÓN</text>
+</svg>

@@ -10,6 +10,8 @@ type Project = (typeof projects)[number] & {
   cover?: ImageMetadata;
   images?: ImageMetadata[];
   websiteUrl?: string;
+  previewImage?: string;
+  visuals?: { src: string; title: string }[];
   sketchfab?: Sketchfab;
   features?: { title: string; text: string }[];
   realImages?: ImageMetadata[];
@@ -47,7 +49,12 @@ const artLabel = `${project.title}, vista ${isReal ? 'ilustrativa' : 'conceptual
         </div>
       </section>
 
-      {project.cover ? (
+      {project.previewImage ? (
+        <figure class="project-detail__cover project-detail__cover--site-image">
+          <img src={project.previewImage} alt={`Vista ilustrativa del sitio de ${project.title}`} class="project-detail__site-image" fetchpriority="high" />
+          <figcaption>Propuesta visual ilustrativa · {project.title}</figcaption>
+        </figure>
+      ) : project.cover ? (
         <figure class="project-detail__cover project-detail__cover--photo">
           <Image src={project.cover} alt={`${project.title}: vista general del render`} widths={[640, 1080, 1600]} sizes="(max-width: 1180px) 100vw, 1180px" loading="eager" class="project-detail__photo" />
         </figure>
@@ -58,8 +65,6 @@ const artLabel = `${project.title}, vista ${isReal ? 'ilustrativa' : 'conceptual
             {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
             {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
             {project.art === 'forma' && <div class="project-art-forma"><span>FORMA<br />01</span><i></i><small>objeto en estudio</small></div>}
-            {project.art === 'zeus' && <div class="project-art-site project-art-site--zeus"><div class="site-preview__bar"><i></i><i></i><i></i><span>zeusmasa.com.ar</span></div><div class="site-preview__zeus"><small>SEGURIDAD PERIMETRAL</small><b>Protección<br />para lo que<br />más importa.</b><span>Conocé nuestros servicios&nbsp; ↗</span><i></i><em></em></div><div class="site-preview__caption">ZEUS MASA <span>·</span> SEGURIDAD</div></div>}
-            {project.art === 'vdm' && <div class="project-art-site project-art-site--vdm"><div class="site-preview__bar"><i></i><i></i><i></i><span>vdminsumos.com</span></div><div class="site-preview__vdm"><header><b>VDM <span>INSUMOS</span></b><small>PRODUCTOS · EQUIPAMIENTOS · CONTACTO</small></header><div class="site-preview__vdm-copy"><small>CATÁLOGO VDM</small><b>Equipamientos<br />para cada espacio.</b><span>Buscá por producto o categoría&nbsp;⌕</span></div><div class="site-preview__tiles"><i>MOBILIARIO</i><i>LÍNEA SANITARIA</i><i>TRANSPORTE</i></div></div></div>}
           </div>
           <figcaption>{isReal ? `Vista ilustrativa · ${project.title}` : 'Dirección visual conceptual · Lunaria'}</figcaption>
         </figure>
@@ -112,6 +117,17 @@ const artLabel = `${project.title}, vista ${isReal ? 'ilustrativa' : 'conceptual
                 <span>{project.title}</span><i aria-hidden="true"></i><b>{String(index + 1).padStart(2, '0')}</b>
               </div>
               <figcaption>{label}<small>Imagen de concepto · Muestra ficticia</small></figcaption>
+            </figure>
+          ))}
+        </section>
+      ) : null}
+
+      {project.visuals?.length ? (
+        <section class="project-detail__gallery project-detail__gallery--site" aria-label={`Vistas ilustrativas del proyecto ${project.title}`}>
+          {project.visuals.map((visual) => (
+            <figure class="detail-gallery__item detail-gallery__item--photo">
+              <img src={visual.src} alt={`${visual.title} · ilustración del proyecto ${project.title}`} class="detail-gallery__photo" loading="lazy" />
+              <figcaption>{visual.title}<small>Visualización ilustrativa</small></figcaption>
             </figure>
           ))}
         </section>

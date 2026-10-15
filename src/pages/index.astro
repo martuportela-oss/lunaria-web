@@ -133,12 +133,11 @@ const year = new Date().getFullYear();
               <a class="project__link" href={`/proyectos/${project.slug}/`} aria-label={`Ver más sobre ${'real' in project ? 'el proyecto' : 'el concepto'} ${project.title}`}>
                 <div class={`project__art${'cover' in project ? ' project__art--photo' : ''}`} aria-hidden="true">
                   {'cover' in project && <Image src={'thumb' in project ? project.thumb : project.cover} alt="" widths={[480, 800, 1200, 1600]} sizes="(max-width: 899px) 100vw, 680px" class="project__photo" />}
+                  {'previewImage' in project && <img src={project.previewImage} alt="" class="project__site-image" loading="lazy" />}
                   {!('cover' in project) && project.art === 'brava' && <div class="project-art-brava"><span>BRAVA</span><small>rico · simple · de acá</small><i>!</i></div>}
                   {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
                   {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
                   {!('cover' in project) && project.art === 'forma' && <div class="project-art-forma"><span>FORMA<br />01</span><i></i><small>objeto en estudio</small></div>}
-                  {project.art === 'zeus' && <div class="project-art-site project-art-site--zeus"><div class="site-preview__bar"><i></i><i></i><i></i><span>zeusmasa.com.ar</span></div><div class="site-preview__zeus"><small>SEGURIDAD PERIMETRAL</small><b>Protección<br />para lo que<br />más importa.</b><span>Conocé nuestros servicios&nbsp; ↗</span><i></i><em></em></div><div class="site-preview__caption">ZEUS MASA <span>·</span> SEGURIDAD</div></div>}
-                  {project.art === 'vdm' && <div class="project-art-site project-art-site--vdm"><div class="site-preview__bar"><i></i><i></i><i></i><span>vdminsumos.com</span></div><div class="site-preview__vdm"><header><b>VDM <span>INSUMOS</span></b><small>PRODUCTOS · EQUIPAMIENTOS · CONTACTO</small></header><div class="site-preview__vdm-copy"><small>CATÁLOGO VDM</small><b>Equipamientos<br />para cada espacio.</b><span>Buscá por producto o categoría&nbsp;⌕</span></div><div class="site-preview__tiles"><i>MOBILIARIO</i><i>LÍNEA SANITARIA</i><i>TRANSPORTE</i></div></div></div>}
                 </div>
                 <div class="project__meta">
                   <div><span class="project__category">{project.category}</span><h3>{project.title}</h3></div>
@@ -255,7 +254,7 @@ const year = new Date().getFullYear();
     if (projectsHint) projectsHint.hidden = category !== 'Todos';
     projectCards.forEach((card) => {
       const cardCategory = card.dataset.projectCategory ?? '';
-      const visible = category === 'Todos' ? card.dataset.projectFeatured === 'true' : cardCategory.includes(category);
+      const visible = category === 'Todos' ? card.dataset.projectFeatured === 'true' : cardCategory.startsWith(category);
       card.hidden = !visible;
       if (visible) card.classList.add('is-visible');
     });

@@ -598,6 +598,7 @@ a:focus-visible {
   background: var(--azul);
   transition: filter 450ms ease;
 }
+.project__site-image { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .project:hover { transform: translateY(-5px); }
 .project:hover .project__art { filter: saturate(1.08); }
 .project__meta {
@@ -720,6 +721,8 @@ a:focus-visible {
 .project-detail__idea h2 { margin-bottom: .65rem; color: var(--crema); font-size: 1.25rem; font-weight: 500; }
 .project-detail__idea p { max-width: 95ch; margin: 0 0 .55rem; color: rgba(248,241,230,.66); font-size: .8rem; line-height: 1.8; }
 .project-detail__cover { margin: 0; padding: .8rem; border: 1px solid rgba(248,241,230,.16); background: rgba(10,20,29,.2); }
+.project-detail__cover--site-image { overflow: hidden; }
+.project-detail__site-image { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--azul); }
 .project-detail__cover .project__art { min-height: clamp(300px, 55vw, 660px); }
 .project-detail__cover .project-art-brava span { font-size: clamp(5rem, 19vw, 16rem); }
 .project-detail__cover .project-art-casa { padding: 5%; }
