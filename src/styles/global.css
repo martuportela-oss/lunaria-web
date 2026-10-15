@@ -1367,3 +1367,9 @@ a:focus-visible {
   .service-card__includes li { font-size: .64rem; }
   .service-card__link { grid-column: 2; width: fit-content; min-height: 34px; margin: 0; padding: .48rem .75rem; font-size: .54rem; }
 }
+
+/* ---------- Proyecto destacado en "Todos" ---------- */
+.projects__hint { margin: -.4rem 0 1.4rem; color: rgba(30,58,82,.62); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; }
+.projects__hint[hidden] { display: none; }
+.projects__grid[data-projects-mode="todos"] .project--featured { grid-column: 1 / -1; }
+.projects__grid[data-projects-mode="todos"] .project--featured .project__art { min-height: clamp(300px, 52vw, 700px); }
