@@ -1337,3 +1337,7 @@ a:focus-visible {
 /* ---------- Proyectos principales en "Todos" ---------- */
 .projects__hint { margin: -.4rem 0 1.4rem; color: rgba(30,58,82,.62); font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; }
 .projects__hint[hidden] { display: none; }
+
+/* ---------- Fotos del proyecto real ---------- */
+.project-detail__real { padding: clamp(1.1rem, 3vw, 2rem); border: 1px solid rgba(248,241,230,.16); background: rgba(10,20,29,.2); }
+.project-detail__gallery--real .detail-gallery__item:first-child { grid-column: 1 / -1; }

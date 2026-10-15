@@ -11,6 +11,7 @@ type Project = (typeof projects)[number] & {
   images?: ImageMetadata[];
   sketchfab?: Sketchfab;
   features?: { title: string; text: string }[];
+  realImages?: ImageMetadata[];
 };
 
 export function getStaticPaths() {
@@ -108,11 +109,28 @@ const isReal = Boolean(project.real);
         </section>
       )}
 
+      {project.realImages && (
+        <section class="project-detail__real" aria-labelledby="auto-real">
+          <header class="project-detail__model-head">
+            <h2 id="auto-real">El auto terminado</h2>
+            <p>Fotos del diseño aplicado</p>
+          </header>
+          <div class="project-detail__gallery project-detail__gallery--photos project-detail__gallery--real">
+            {project.realImages.map((img, index) => (
+              <figure class="detail-gallery__item detail-gallery__item--photo">
+                <Image src={img} alt={`${project.title}: foto del auto real ${index + 1}`} widths={[480, 800, 1200, 1600]} sizes={index === 0 ? '(max-width: 1180px) 100vw, 1180px' : '(max-width: 899px) 100vw, 580px'} class="detail-gallery__photo" />
+                <figcaption>Auto real<small>Fotografía</small></figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section class="project-detail__facts" aria-label={isReal ? 'Ficha del proyecto' : 'Ficha del concepto'}>
         <div><span>Tipo de proyecto</span><p>{project.type}</p></div>
         <div><span>Enfoque</span><p>{project.focus}</p></div>
         <div><span>{isReal ? 'Áreas de trabajo' : 'Áreas exploradas'}</span><p>{project.tools}</p></div>
-        <div><span>{isReal ? 'Formato' : 'Estado'}</span><p>{isReal ? (project.sketchfab ? 'Renders 3D · Modelo interactivo' : 'Renders 3D') : 'Concepto ficticio · Reemplazar por un proyecto seleccionado'}</p></div>
+        <div><span>{isReal ? 'Formato' : 'Estado'}</span><p>{isReal ? (project.sketchfab ? 'Renders 3D · Modelo interactivo' : project.realImages ? 'Renders 3D · Fotos del auto real' : 'Renders 3D') : 'Concepto ficticio · Reemplazar por un proyecto seleccionado'}</p></div>
       </section>
 
       <footer class="project-detail__footer">

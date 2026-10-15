@@ -10,6 +10,11 @@ import nissan2 from '../assets/proyectos/diseno-nissan-tc2000/nissan-kicks-2.jpg
 import nissan3 from '../assets/proyectos/diseno-nissan-tc2000/nissan-kicks-3.jpg';
 import nissan4 from '../assets/proyectos/diseno-nissan-tc2000/nissan-kicks-4.jpg';
 import nissan5 from '../assets/proyectos/diseno-nissan-tc2000/nissan-kicks-5.jpg';
+import nissanReal1 from '../assets/proyectos/diseno-nissan-tc2000/nissan-real-1.jpg';
+import nissanReal2 from '../assets/proyectos/diseno-nissan-tc2000/nissan-real-2.jpg';
+import nissanReal3 from '../assets/proyectos/diseno-nissan-tc2000/nissan-real-3.jpg';
+import nissanReal4 from '../assets/proyectos/diseno-nissan-tc2000/nissan-real-4.jpg';
+import nissanReal5 from '../assets/proyectos/diseno-nissan-tc2000/nissan-real-5.jpg';
 
 export const site = {
   name: 'Lunaria',
@@ -149,14 +154,15 @@ export const projects = [
     },
   },
   {
-    slug: 'diseno-nissan-tc2000', title: 'Nissan Kicks TC2000', category: 'Diseño 3D · Automotor', description: 'Diseño y visualización 3D de un Nissan Kicks de competición para el TC2000.',
-    art: 'forma', size: 'narrow', type: 'Diseño 3D · Automotor', focus: 'Diseño de auto de competición y gráfica de marca', tools: 'Modelado · Materiales · Iluminación · Render',
-    intro: 'Diseño y visualización 3D de un Nissan Kicks de competición para el TC2000.',
-    idea: 'Texto provisorio: reemplazar por la descripción del proyecto.',
+    slug: 'diseno-nissan-tc2000', title: 'Nissan Kicks TC2000', category: 'Diseño 3D · Automotor', description: 'Diseño para la presentación del Nissan Kicks en la última fecha del TC2000 2025.',
+    art: 'forma', size: 'narrow', type: 'Diseño 3D · Automotor', focus: 'Diseño de auto de competición y gráfica de marca', tools: 'Bocetado · Maquetado 3D · Archivos para imprenta',
+    intro: 'Diseño Nissan Kicks TC2000 para la presentación en la última fecha del campeonato 2025.',
+    idea: 'Bocetado y maquetado en 3D, con preparación de archivos finales para imprenta y su posterior realización en el auto real.',
     gallery: ['Tres cuartos trasero', 'Vista trasera', 'Frente', 'Detalle trasero'],
     real: true,
     cover: nissan3,
     images: [nissan1, nissan2, nissan4, nissan5],
+    realImages: [nissanReal1, nissanReal2, nissanReal3, nissanReal4, nissanReal5],
   },
 ];
 
