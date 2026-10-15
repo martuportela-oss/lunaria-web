@@ -1347,6 +1347,16 @@ a:focus-visible {
 .project-detail__feature { color: var(--crema); }
 @media (max-width: 639px) { .project__photo { object-fit: contain; } }
 
+/* Mantener las capturas completas y dos tarjetas por fila en Proyectos. */
+.project--zeus .project__site-image,
+.project--vdm .project__site-image { object-fit: contain; }
+.project--zeus:hover .project__site-image,
+.project--vdm:hover .project__site-image { transform: none; }
+@media (max-width: 639px) {
+  .projects__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project, .project--wide { grid-column: span 1; }
+}
+
 /* ---------- Servicios: grilla editorial de Lunaria ---------- */
 .services__head { max-width: none; margin-bottom: clamp(2.8rem, 5vw, 4.2rem); }
 .services__head h2 { margin: 0; color: var(--azul); font-size: clamp(2rem, 3.4vw, 2.8rem); letter-spacing: .015em; text-transform: uppercase; }
