@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
- <defs><linearGradient id="s" x2="0" y2="1"><stop stop-color="#f8f5ef"/><stop offset="1" stop-color="#d5d0c7"/></linearGradient><linearGradient id="m" x2="1" y2="1"><stop stop-color="#f5f7f6"/><stop offset=".5" stop-color="#aeb8b8"/><stop offset="1" stop-color="#f6f6f3"/></linearGradient></defs>
- <rect width="1200" height="760" fill="url(#s)"/><text x="72" y="80" fill="#b57e5d" font-family="Arial,sans-serif" font-size="18" letter-spacing="5">MOBILIARIO INDUSTRIAL</text><text x="72" y="146" fill="#142e40" font-family="Arial,sans-serif" font-size="48" font-weight="700">Soluciones para el trabajo diario</text>
- <g fill="url(#m)" stroke="#77858a" stroke-width="5"><path d="M170 270h330v34H170zm20 34v280m290-280v280M190 370h290v30H190zm0 108h290v30H190z"/><rect x="618" y="344" width="384" height="35" rx="4"/><path d="M642 379v205m335-205v205m-222-205v190m110-190v190"/><path d="M640 584h340v35H640z"/><rect x="701" y="264" width="220" height="80" rx="20"/></g>
- <path d="M121 618h900" stroke="#142e40" stroke-width="7" opacity=".4"/><rect x="72" y="658" width="1056" height="2" fill="#b7aa96"/><text x="72" y="710" fill="#142e40" font-family="Arial,sans-serif" font-size="18" letter-spacing="3">CARROS DE TRASLADO　 ·　 ESTANTERÍAS　 ·　 MESAS DE TRABAJO</text>
-</svg>

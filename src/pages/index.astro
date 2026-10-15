@@ -133,7 +133,7 @@ const year = new Date().getFullYear();
               <a class="project__link" href={`/proyectos/${project.slug}/`} aria-label={`Ver más sobre ${'real' in project ? 'el proyecto' : 'el concepto'} ${project.title}`}>
                 <div class={`project__art${'cover' in project ? ' project__art--photo' : ''}`} aria-hidden="true">
                   {'cover' in project && <Image src={'thumb' in project ? project.thumb : project.cover} alt="" widths={[480, 800, 1200, 1600]} sizes="(max-width: 899px) 100vw, 680px" class="project__photo" />}
-                  {'previewImage' in project && <img src={project.previewImage} alt="" class="project__site-image" loading="lazy" />}
+                  {'previewImage' in project && <img src={project.previewImage} alt="" class="project__photo project__site-image" loading="lazy" />}
                   {!('cover' in project) && project.art === 'brava' && <div class="project-art-brava"><span>BRAVA</span><small>rico · simple · de acá</small><i>!</i></div>}
                   {project.art === 'casa' && <div class="project-art-casa"><div class="casa-window"><small>CASA CALMA</small><b>Un lugar<br />para volver<br />a vos.</b><span>Descubrí el espacio&nbsp; ↗</span></div></div>}
                   {project.art === 'pausa' && <div class="project-art-pausa"><span>PAUSA</span><i></i><small>respirá · volvé</small></div>}
