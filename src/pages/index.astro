@@ -49,20 +49,22 @@ const year = new Date().getFullYear();
           </div>
         </div>
         <div class="hero__art" aria-label="Muestra visual de los servicios de Lunaria">
-          <div class="hero__gallery">
-            <figure class="hero__frame hero__frame--identity" style={`--panel-image: url("${showcase.src}"); --panel-position: 0%`}>
-              <figcaption><span>01</span> Identidad</figcaption>
-            </figure>
-            <figure class="hero__frame hero__frame--digital" style={`--panel-image: url("${showcase.src}"); --panel-position: 33.333%`}>
-              <figcaption><span>02</span> Digital</figcaption>
-            </figure>
-            <figure class="hero__frame hero__frame--motion" style={`--panel-image: url("${showcase.src}"); --panel-position: 66.666%`}>
-              <figcaption><span>03</span> Motion</figcaption>
-            </figure>
-            <figure class="hero__frame hero__frame--product" style={`--panel-image: url("${showcase.src}"); --panel-position: 100%`}>
-              <figcaption><span>04</span> 3D</figcaption>
-            </figure>
-          </div>
+          <figure class="hero__visual">
+            <Image
+              src={showcase}
+              alt="Muestra visual de identidad, diseño digital, motion y producto 3D de Lunaria"
+              widths={[640, 960, 1280]}
+              sizes="(max-width: 899px) 100vw, 620px"
+              class="hero__visual-image"
+              loading="eager"
+              fetchpriority="high"
+            />
+            <figcaption class="hero__visual-caption">
+              <span>01 — 04</span>
+              <b>Identidad · Digital · Movimiento · 3D</b>
+              <small>Ideas que toman forma</small>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
