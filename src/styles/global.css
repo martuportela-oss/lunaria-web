@@ -176,6 +176,15 @@ a:focus-visible {
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(185, 138, 106, 0.2);
   box-shadow: 0 8px 28px -26px rgba(30, 58, 82, .5);
+  transition: background 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+.header--over-hero {
+  background: rgba(12, 27, 40, .34);
+  border-bottom-color: rgba(248, 241, 230, .2);
+  box-shadow: 0 8px 28px -26px rgba(0, 0, 0, .5);
+  backdrop-filter: blur(9px);
+  color: var(--crema);
 }
 
 .header__inner {
@@ -210,6 +219,7 @@ a:focus-visible {
 .logo-crop--intro { background: var(--crema); }
 .logo-header { display: block; flex: none; width: 142px; height: 58px; }
 .logo-header__image { display: block; width: 100%; height: 100%; object-fit: contain; }
+.header--over-hero .logo-header__image { filter: brightness(0) invert(1); }
 
 .brand__logo {
   mix-blend-mode: multiply;
@@ -249,6 +259,14 @@ a:focus-visible {
 
 .nav a:hover::after, .nav a:focus-visible::after { right: 0; }
 
+.header--over-hero .nav a { color: var(--crema); }
+.header--over-hero .nav a::after { background: var(--dorado); }
+.header--over-hero .nav a:hover, .header--over-hero .nav a:focus-visible { color: var(--dorado); }
+.header--over-hero .btn--small { border-color: rgba(248,241,230,.76); background: transparent; color: var(--crema); }
+.header--over-hero .btn--small:hover { background: var(--crema); color: var(--azul); }
+.header--over-hero .mobile-nav summary { border-color: rgba(248,241,230,.55); }
+.header--over-hero .mobile-nav summary span { background: var(--crema); }
+
 .mobile-nav { display: none; }
 
 .intro {
@@ -281,7 +299,8 @@ a:focus-visible {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  isolation: isolate;
   display: grid;
   min-height: min(820px, calc(100svh - 84px));
   align-items: center;
@@ -300,9 +319,12 @@ a:focus-visible {
 .hero__video {
   position: absolute;
   z-index: 0;
-  inset: 0;
+  top: -84px;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 84px);
   object-fit: cover;
   object-position: center;
   background: var(--azul);
@@ -311,7 +333,10 @@ a:focus-visible {
 .hero__veil {
   position: absolute;
   z-index: 0;
-  inset: 0;
+  top: -84px;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background:
     linear-gradient(90deg, rgba(19,43,63,.88) 0%, rgba(19,43,63,.72) 42%, rgba(19,43,63,.34) 100%),
     linear-gradient(0deg, rgba(19,43,63,.32), rgba(19,43,63,.18));
@@ -1155,6 +1180,8 @@ a:focus-visible {
 
 @media (max-width: 639px) {
   :root { --gutter: 18px; }
+  .hero__video { top: -76px; height: calc(100% + 76px); object-position: 62% center; }
+  .hero__veil { top: -76px; background: linear-gradient(90deg, rgba(19,43,63,.88), rgba(19,43,63,.58)), linear-gradient(0deg, rgba(19,43,63,.28), rgba(19,43,63,.22)); }
   .hero { padding: 3.5rem 0 4rem; }
   .hero__inner { gap: 1.4rem; }
   h1 { font-size: clamp(2.5rem, 12vw, 4rem); }

@@ -13,12 +13,37 @@ const year = new Date().getFullYear();
 ---
 
 <Base>
+  <style is:inline>
+    .header { transition: background 240ms ease, border-color 240ms ease, box-shadow 240ms ease; }
+    .header.header--over-hero {
+      background: rgba(12, 27, 40, .34);
+      border-bottom-color: rgba(248, 241, 230, .2);
+      box-shadow: 0 8px 28px -26px rgba(0, 0, 0, .5);
+      backdrop-filter: blur(9px);
+      color: var(--crema);
+    }
+    .header--over-hero .logo-header__image { filter: brightness(0) invert(1); }
+    .header--over-hero .nav a { color: var(--crema); }
+    .header--over-hero .nav a::after { background: var(--dorado); }
+    .header--over-hero .nav a:hover, .header--over-hero .nav a:focus-visible { color: var(--dorado); }
+    .header--over-hero .btn--small { border-color: rgba(248,241,230,.76); background: transparent; color: var(--crema); }
+    .header--over-hero .btn--small:hover { background: var(--crema); color: var(--azul); }
+    .header--over-hero .mobile-nav summary { border-color: rgba(248,241,230,.55); }
+    .header--over-hero .mobile-nav summary span { background: var(--crema); }
+    .hero { overflow: visible; isolation: isolate; }
+    .hero__video, .hero__veil { top: -84px; }
+    .hero__video { height: calc(100% + 84px); }
+    @media (max-width: 639px) {
+      .hero__video, .hero__veil { top: -76px; }
+      .hero__video { height: calc(100% + 76px); object-position: 62% center; }
+    }
+  </style>
   <div class="intro" aria-label="Lunaria" role="presentation">
     <div class="logo-crop logo-crop--intro">
       <Image src={logo} alt="" width={1600} height={900} loading="eager" class="logo-crop__image" />
     </div>
   </div>
-  <header class="header">
+  <header class="header header--over-hero">
     <div class="container header__inner">
       <a href="#inicio" class="brand logo-header" aria-label="Lunaria, inicio">
         <Image src={headerLogo} alt="Lunaria" width={358} height={143} loading="eager" class="logo-header__image" />
@@ -202,6 +227,15 @@ const year = new Date().getFullYear();
     </details>
   </div>
 </Base>
+
+<script is:inline>
+  const siteHeader = document.querySelector('.header');
+  const syncHeaderAppearance = () => {
+    siteHeader?.classList.toggle('header--over-hero', window.scrollY <= 24);
+  };
+  syncHeaderAppearance();
+  window.addEventListener('scroll', syncHeaderAppearance, { passive: true });
+</script>
 
 <script>
   const mobileMenu = document.querySelector('.mobile-nav');
