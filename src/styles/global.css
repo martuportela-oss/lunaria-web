@@ -282,34 +282,45 @@ a:focus-visible {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: clamp(4rem, 10vw, 8rem) 0 clamp(4rem, 9vw, 7rem);
+  display: grid;
+  min-height: min(820px, calc(100svh - 84px));
+  align-items: center;
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  background: linear-gradient(112deg, #1e3a52 0%, #1a334a 62%, #152b3e 100%);
+  color: var(--crema);
 }
 
 .hero__inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
-  gap: 2.5rem;
+  gap: clamp(2rem, 4vw, 4rem);
 }
 
-.hero__copy { max-width: 650px; }
+.hero__copy { max-width: 610px; }
+.hero .eyebrow { color: var(--dorado); }
+.hero .spark { background: var(--dorado); }
+.hero h1 { color: var(--crema); }
+.hero .lead { color: rgba(248,241,230,.82); }
+.hero .btn { border-color: var(--dorado); background: var(--dorado); color: var(--azul); }
+.hero .btn:hover { border-color: var(--crema); background: var(--crema); }
+.hero .btn--ghost { border-color: rgba(248,241,230,.62); background: transparent; color: var(--crema); }
+.hero .btn--ghost:hover { border-color: var(--crema); background: var(--crema); color: var(--azul); }
 
 .hero__art {
   position: relative;
   width: min(100%, 590px);
-  height: 390px;
+  height: clamp(350px, 54vh, 500px);
   margin-inline: auto;
   isolation: isolate;
 }
 
 .hero__gallery {
   position: absolute;
-  inset: 4% 3% 6% 0;
-  display: grid;
-  grid-template-columns: 1.02fr 1.18fr .92fr 1.02fr;
-  gap: 7px;
-  transform: rotate(-2deg);
-  filter: drop-shadow(0 24px 30px rgba(30,58,82,.19));
+  inset: 1% 0 1% 0;
+  display: flex;
+  gap: 10px;
+  filter: drop-shadow(0 24px 34px rgba(5,16,25,.3));
   animation: gallery-arrive 900ms 240ms both cubic-bezier(.18,.74,.22,1);
 }
 
@@ -318,7 +329,8 @@ a:focus-visible {
   min-width: 0;
   overflow: hidden;
   margin: 0;
-  border: 5px solid var(--blanco);
+  flex: 1 1 0;
+  border: 5px solid rgba(248,241,230,.94);
   border-radius: 24px;
   background-color: var(--azul);
   background-image: var(--panel-image);
@@ -326,20 +338,21 @@ a:focus-visible {
   background-size: 400% 100%;
   background-position: var(--panel-position) center;
   box-shadow: inset 0 0 0 1px rgba(30,58,82,.1);
-  transform: translateY(var(--float-start, 0));
+  transform: translateY(var(--float-start, 0)) rotate(var(--tilt, 0deg));
   animation: panel-float 6s ease-in-out infinite;
   animation-delay: var(--float-delay, 0s);
+  transition: flex .55s cubic-bezier(.2,.7,.2,1), border-color .35s ease, transform .55s cubic-bezier(.2,.7,.2,1), filter .35s ease;
 }
 
-.hero__frame--identity { --float-start: 2px; --float-delay: -.6s; }
-.hero__frame--digital { --float-start: -8px; --float-delay: -2.1s; }
-.hero__frame--motion { --float-start: 5px; --float-delay: -3.8s; }
-.hero__frame--product { --float-start: -3px; --float-delay: -1.4s; }
+.hero__frame--identity { --float-start: 2px; --float-delay: -.6s; --tilt: -1.3deg; }
+.hero__frame--digital { --float-start: -8px; --float-delay: -2.1s; --tilt: .6deg; }
+.hero__frame--motion { --float-start: 5px; --float-delay: -3.8s; --tilt: -.4deg; }
+.hero__frame--product { --float-start: -3px; --float-delay: -1.4s; --tilt: 1.2deg; }
 
 .hero__frame::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(16,35,50,.02) 35%, rgba(16,35,50,.54));
+  background: linear-gradient(180deg, rgba(16,35,50,.02) 30%, rgba(16,35,50,.68));
   content: '';
   transition: opacity 350ms ease;
 }
@@ -356,28 +369,29 @@ a:focus-visible {
   letter-spacing: .06em;
   text-align: center;
   text-shadow: 0 1px 8px rgba(8,18,26,.45);
-  opacity: 0;
-  transform: translateY(5px);
+  opacity: .88;
+  transform: translateY(0);
   transition: opacity 280ms ease, transform 280ms ease;
 }
 
 .hero__frame figcaption span { display: block; margin-bottom: 3px; color: var(--dorado); font-size: .5rem; letter-spacing: .15em; }
-.hero__gallery:hover .hero__frame figcaption,
-.hero__gallery:focus-within .hero__frame figcaption { opacity: 1; transform: translateY(0); }
+.hero__gallery:hover .hero__frame { flex: .78 1 0; }
+.hero__gallery:hover .hero__frame:hover { flex: 1.75 1 0; border-color: var(--dorado); }
+.hero__gallery:hover .hero__frame:not(:hover) figcaption { opacity: .45; }
 
 @keyframes gallery-arrive {
-  from { opacity: 0; transform: translate(18px, 22px) rotate(2deg) scale(.96); }
-  to { opacity: 1; transform: translate(0) rotate(-2deg) scale(1); }
+  from { opacity: 0; transform: translate(18px, 22px) scale(.96); }
+  to { opacity: 1; transform: translate(0) scale(1); }
 }
 
 @keyframes panel-float {
-  0%, 100% { transform: translateY(var(--float-start, 0)); }
-  50% { transform: translateY(calc(var(--float-start, 0px) - 10px)); }
+  0%, 100% { transform: translateY(var(--float-start, 0)) rotate(var(--tilt, 0deg)); }
+  50% { transform: translateY(calc(var(--float-start, 0px) - 10px)) rotate(calc(var(--tilt, 0deg) * -1)); }
 }
 
 @media (min-width: 900px) {
-  .hero__inner { grid-template-columns: 1.05fr 0.95fr; }
-  .hero__art { height: 420px; }
+  .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .hero__art { height: min(58vh, 540px); }
 }
 
 .hero__inner {
