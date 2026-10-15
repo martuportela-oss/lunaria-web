@@ -1349,12 +1349,14 @@ a:focus-visible {
 
 /* Mantener las capturas completas y dos tarjetas por fila en Proyectos. */
 .project--zeus .project__site-image,
-.project--vdm .project__site-image { object-fit: contain; }
+.project--vdm .project__site-image { object-fit: contain !important; object-position: center; }
 .project--zeus:hover .project__site-image,
-.project--vdm:hover .project__site-image { transform: none; }
+.project--vdm:hover .project__site-image { transform: none !important; }
+.project--zeus .project__art,
+.project--vdm .project__art { aspect-ratio: 16 / 9; min-height: 0 !important; }
 @media (max-width: 639px) {
-  .projects__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .project, .project--wide { grid-column: span 1; }
+  .projects__grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .project, .project--wide { grid-column: span 1 !important; }
 }
 
 /* ---------- Servicios: grilla editorial de Lunaria ---------- */
