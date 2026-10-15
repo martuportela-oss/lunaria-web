@@ -49,7 +49,6 @@ const isReal = Boolean(project.real);
       {project.cover ? (
         <figure class="project-detail__cover project-detail__cover--photo">
           <Image src={project.cover} alt={`${project.title}: vista general del render`} widths={[640, 1080, 1600]} sizes="(max-width: 1180px) 100vw, 1180px" loading="eager" class="project-detail__photo" />
-          <figcaption>Render 3D · Vista general</figcaption>
         </figure>
       ) : (
         <figure class={`project-detail__cover project--${project.art}`}>
@@ -92,7 +91,6 @@ const isReal = Boolean(project.real);
           {project.images.map((img, index) => (
             <figure class="detail-gallery__item detail-gallery__item--photo">
               <Image src={img} alt={`${project.title}: ${project.gallery[index] ?? 'render'}`} widths={[480, 800, 1200]} sizes="(max-width: 899px) 100vw, 580px" class="detail-gallery__photo" />
-              <figcaption>{project.gallery[index] ?? 'Render'}<small>Render 3D</small></figcaption>
             </figure>
           ))}
         </section>
@@ -118,8 +116,7 @@ const isReal = Boolean(project.real);
           <div class="project-detail__gallery project-detail__gallery--photos project-detail__gallery--real">
             {project.realImages.map((img, index) => (
               <figure class="detail-gallery__item detail-gallery__item--photo">
-                <Image src={img} alt={`${project.title}: foto del auto real ${index + 1}`} widths={[480, 800, 1200, 1600]} sizes={index === 0 ? '(max-width: 1180px) 100vw, 1180px' : '(max-width: 899px) 100vw, 580px'} class="detail-gallery__photo" />
-                <figcaption>Auto real<small>Fotografía</small></figcaption>
+                <Image src={img} alt={`${project.title}: foto del auto real`} widths={[480, 800, 1200, 1600]} sizes={index === 0 ? '(max-width: 1180px) 100vw, 1180px' : '(max-width: 899px) 100vw, 580px'} class="detail-gallery__photo" />
               </figure>
             ))}
           </div>
