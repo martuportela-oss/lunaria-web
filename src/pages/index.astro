@@ -65,7 +65,7 @@ const year = new Date().getFullYear();
     <section class="hero">
       <!-- Video de fondo: "Creative Digital Design Process on Laptop", Pietro Henricky / Pexels. -->
       <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster={showcase.src} aria-hidden="true" tabindex="-1">
-        <source src="/lunaria-header-reel.mp4" type="video/mp4" />
+        <source src={`${import.meta.env.BASE_URL}lunaria-header-reel.mp4`} type="video/mp4" />
       </video>
       <div class="hero__veil" aria-hidden="true"></div>
       <div class="container hero__inner">
@@ -130,7 +130,7 @@ const year = new Date().getFullYear();
         <div class="projects__grid" data-projects-mode="todos">
           {projects.map((project, i) => (
             <article class={`project project--${project.art} project--${project.size}${'featured' in project ? ' project--featured' : ''} reveal`} data-project-category={project.category} data-project-featured={'featured' in project ? 'true' : undefined} hidden={!('featured' in project)} style={`--reveal-delay: ${i * 80}ms`}>
-              <a class="project__link" href={`/proyectos/${project.slug}/`} aria-label={`Ver más sobre ${'real' in project ? 'el proyecto' : 'el concepto'} ${project.title}`}>
+              <a class="project__link" href={`${import.meta.env.BASE_URL}proyectos/${project.slug}/`} aria-label={`Ver más sobre ${'real' in project ? 'el proyecto' : 'el concepto'} ${project.title}`}>
                 <div class={`project__art${'cover' in project ? ' project__art--photo' : ''}`} aria-hidden="true">
                   {'cover' in project && <Image src={'thumb' in project ? project.thumb : project.cover} alt="" widths={[480, 800, 1200, 1600]} sizes="(max-width: 899px) 100vw, 680px" class="project__photo" />}
                   {'previewImage' in project && <img src={project.previewImage} alt="" class="project__photo project__site-image" loading="lazy" />}

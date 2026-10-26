@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 
 // Cuando tengan dominio propio, completar `site` (sirve para sitemap y SEO).
 export default defineConfig({
+  // GitHub Pages hosts this repo under /lunaria-web; other hosts keep the root path.
+  base: process.env.PUBLIC_BASE ?? '/',
   vite: {
     server: {
       watch: {

@@ -28,8 +28,8 @@ const artLabel = `${project.title}, vista ${isReal ? 'ilustrativa' : 'conceptual
 <Base title={`${project.title} · Proyectos | ${site.name}`} description={project.intro}>
   <main class="project-detail">
     <header class="project-detail__top">
-      <a class="project-detail__brand" href="/#inicio" aria-label="Lunaria, inicio">Lunaria<span>✦</span></a>
-      <a class="project-detail__back" href="/#proyectos">← Volver a proyectos</a>
+      <a class="project-detail__brand" href={`${import.meta.env.BASE_URL}#inicio`} aria-label="Lunaria, inicio">Lunaria<span>✦</span></a>
+      <a class="project-detail__back" href={`${import.meta.env.BASE_URL}#proyectos`}>← Volver a proyectos</a>
     </header>
 
     <div class="project-detail__content">
@@ -146,7 +146,7 @@ const artLabel = `${project.title}, vista ${isReal ? 'ilustrativa' : 'conceptual
 
       <footer class="project-detail__footer">
         <p>¿Imaginamos algo para tu marca?</p>
-        <a class="btn" href="/#contacto">Hablemos de tu idea <span aria-hidden="true">✦</span></a>
+        <a class="btn" href={`${import.meta.env.BASE_URL}#contacto`}>Hablemos de tu idea <span aria-hidden="true">✦</span></a>
       </footer>
     </div>
   </main>
